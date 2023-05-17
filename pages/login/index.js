@@ -1,4 +1,3 @@
-"use client"
 import { useRouter, useSearchParams } from "next/router";
 import next from "next/types";
 
