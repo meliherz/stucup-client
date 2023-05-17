@@ -19,7 +19,7 @@ const Footer = () => {
                   <Link href="tel:610383766284">+0123456789</Link>
                 </h2>
                 <Link href="/contact" className="smooth button button__primary">
-                  <span>Send me a message</span>
+                  <span>Bize Ulaşın</span>
                 </Link>
               </div>
             </div>
@@ -28,22 +28,22 @@ const Footer = () => {
             <div className="row">
               <div className="col-lg-3 d-flex justify-content-center align-items-center mb-3 mb-lg-0 justify-content-lg-start">
                 <Link href="/">
-                  <h2 className="m-0">HUDDLE.</h2>
+                  <h2 className="m-0">Stucup.</h2>
                 </Link>
               </div>
               <div className="col-lg-6 d-flex justify-content-center align-items-center mb-3 mb-lg-0">
                 <ul className="footer__middle__menu">
                   <li>
-                    <Link href="/">Home</Link>
+                    <Link href="/">Ana Sayfa</Link>
                   </li>
                   <li>
-                    <Link href="/events">Events</Link>
+                    <Link href="/events">Etkinlikler</Link>
                   </li>
                   <li>
                     <Link href="/blogs">Blog</Link>
                   </li>
                   <li>
-                    <Link href="/contact">contact</Link>
+                    <Link href="/contact">İletişim</Link>
                   </li>
                 </ul>
               </div>

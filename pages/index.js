@@ -11,27 +11,27 @@ import RecentBlog from "../components/recent-blog";
 const inter = Inter({ subsets: ["latin"] });
 
 export default function Home({ events, blogs }) {
-  const eventsData = events.data;
-  const blogsData = blogs.data;
+  // const eventsData = events.data;
+  // const blogsData = blogs.data;
   return (
-    <Layout title="huddle">
+    <Layout title="Stucup">
       <Hero />
-      <UpcomingEvents events={eventsData} />
+      {/* <UpcomingEvents events={eventsData} /> */}
       <HowItWorks />
-      <FeaturedEvents events={eventsData} />
+      {/* <FeaturedEvents events={eventsData} /> */}
       <Testimonial />
-      <RecentBlog blogs={blogsData} />
+      {/* <RecentBlog blogs={blogsData} /> */}
     </Layout>
   );
 }
 
-export async function getStaticProps() {
-  const res = await fetch(`${API_URL}/api/events?populate=*`);
-  const events = await res.json();
-  const blogData = await fetch(`${API_URL}/api/blogs?populate=*`);
-  const blogs = await blogData.json();
+// export async function getStaticProps() {
+//   const res = await fetch(`${API_URL}/api/events?populate=*`);
+//   const events = await res.json();
+//   const blogData = await fetch(`${API_URL}/api/blogs?populate=*`);
+//   const blogs = await blogData.json();
 
-  return {
-    props: { events, blogs }
-  };
-}
+//   return {
+//     props: { events, blogs }
+//   };
+// }

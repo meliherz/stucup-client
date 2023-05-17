@@ -17,7 +17,7 @@ const Contact = () => {
         >
           <div className="row">
             <div className="col-md-8 col-lg-6 mx-auto text-center">
-              <h2 className="title">Contact Us</h2>
+              <h2 className="title">Bize Ulaşın</h2>
               <p className="description">
                 Lorem ipsum dolor sit amet consectetur adipisicing elit.
                 Eligendi eveniet officia officiis omnis magnam totam placeat

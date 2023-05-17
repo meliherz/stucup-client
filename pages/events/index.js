@@ -49,11 +49,11 @@ const EventPage = ({events}) => {
             <div key={evt.id} className="col-md-6 col-lg-4 mb-4">
               <div className="upcoming-events__item">
                 <div className="image">
-                  <img
+                  {/* <img
                     className="img-fluid"
                     src={`${API_URL}${evt.attributes?.image?.data?.attributes.url}`}
                     alt={evt.attributes.image.data.attributes.name}
-                  />
+                  /> */}
                   {evt?.attributes?.eventType !== "none" ? (
                         <div className="popular">
                           {evt?.attributes?.eventType}
@@ -111,11 +111,11 @@ const EventPage = ({events}) => {
             <div key={evt.id} className="col-md-6 col-lg-4 mb-4">
               <div className="upcoming-events__item">
                 <div className="image">
-                  <img
+                  {/* <img
                     className="img-fluid"
                     src={`${API_URL}${evt.attributes?.image?.data?.attributes.url}`}
                     alt={evt.attributes.image.data.attributes.name}
-                  />
+                  /> */}
                  {evt?.attributes?.eventType !== "none" ? (
                         <div className="popular">
                           {evt?.attributes?.eventType}
@@ -164,11 +164,11 @@ const EventPage = ({events}) => {
             <div key={evt.id} className="col-md-6 col-lg-4 mb-4">
               <div className="upcoming-events__item">
                 <div className="image">
-                  <img
+                  {/* <img
                     className="img-fluid"
                     src={`${API_URL}${evt.attributes?.image?.data?.attributes.url}`}
                     alt={evt.attributes.image.data.attributes.name}
-                  />
+                  /> */}
                   {evt?.attributes?.eventType !== "none" ? (
                         <div className="popular">
                           {evt?.attributes?.eventType}
@@ -217,11 +217,11 @@ const EventPage = ({events}) => {
             <div key={evt.id} className="col-md-6 col-lg-4 mb-4">
               <div className="upcoming-events__item">
                 <div className="image">
-                  <img
+                  {/* <img
                     className="img-fluid"
                     src={`${API_URL}${evt.attributes?.image?.data?.attributes.url}`}
                     alt={evt.attributes.image.data.attributes.name}
-                  />
+                  /> */}
                  {evt?.attributes?.eventType !== "none" ? (
                         <div className="popular">
                           {evt?.attributes?.eventType}
@@ -270,11 +270,11 @@ const EventPage = ({events}) => {
             <div key={evt.id} className="col-md-6 col-lg-4 mb-4">
               <div className="upcoming-events__item">
                 <div className="image">
-                  <img
+                  {/* <img
                     className="img-fluid"
                     src={`${API_URL}${evt.attributes?.image?.data?.attributes.url}`}
                     alt={evt.attributes.image.data.attributes.name}
-                  />
+                  /> */}
                   {evt?.attributes?.eventType !== "none" ? (
                         <div className="popular">
                           {evt?.attributes?.eventType}
@@ -323,11 +323,11 @@ const EventPage = ({events}) => {
             <div key={evt.id} className="col-md-6 col-lg-4 mb-4">
               <div className="upcoming-events__item">
                 <div className="image">
-                  <img
+                  {/* <img
                     className="img-fluid"
                     src={`${API_URL}${evt.attributes?.image?.data?.attributes.url}`}
                     alt={evt.attributes.image.data.attributes.name}
-                  />
+                  /> */}
                   {evt?.attributes?.eventType !== "none" ? (
                         <div className="popular">
                           {evt?.attributes?.eventType}
@@ -376,11 +376,11 @@ const EventPage = ({events}) => {
             <div key={evt.id} className="col-md-6 col-lg-4 mb-4">
               <div className="upcoming-events__item">
                 <div className="image">
-                  <img
+                  {/* <img
                     className="img-fluid"
                     src={`${API_URL}${evt.attributes?.image?.data?.attributes.url}`}
                     alt={evt.attributes.image.data.attributes.name}
-                  />
+                  /> */}
                   {evt?.attributes?.eventType !== "none" ? (
                         <div className="popular">
                           {evt?.attributes?.eventType}
@@ -432,13 +432,13 @@ const EventPage = ({events}) => {
 
 export default EventPage;
 
-export async function getStaticProps() {
-  const res = await fetch(`${API_URL}/api/events?populate=*`);
-  const events = await res.json();
+// export async function getStaticProps() {
+//   const res = await fetch(`${API_URL}/api/events?populate=*`);
+//   const events = await res.json();
 
-  return {
-    props: { events },
-    revalidate: 1,
-  };
-}
+//   return {
+//     props: { events },
+//     revalidate: 1,
+//   };
+// }
 

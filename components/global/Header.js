@@ -8,7 +8,7 @@ const Header = () => {
       <div className="container">
         <Navbar className="p-0" bg="none" expand="lg">
           <Link className="navbar-brand" href="/">
-            <h2 className="logo">Huddle.</h2>
+            <h2 className="logo">Stucup.</h2>
           </Link>
           <Navbar.Toggle
             className="navbar-toggler collapsed"
@@ -32,36 +32,36 @@ const Header = () => {
             <ul className="navbar-nav">
               <li className="nav-item">
                 <Link className="nav-link" href="/">
-                  Home
+                  Ana Sayfa
                 </Link>
               </li>
               <li className="nav-item">
                 <Link className="nav-link" href="/events">
-                  All Events
+                  Etkinlikler
                 </Link>
               </li>
               <li className="nav-item">
                 <Link className="nav-link" href="/blogs">
-                  Blogs
+                  Bloglar
                 </Link>
               </li>
               <li className="nav-item">
                 <Link className="nav-link" href="/contact">
-                  Contact
+                  İletişim
                 </Link>
               </li>
             </ul>
             <ul className="navbar-nav navbar__right d-block d-lg-none">
               <li className="nav-item">
-                <Link className="nav-link" href="mailto:admin@gmail.com">
-                <MdOutlineEmail />
-                  admin@gmail.com
+                <Link className="nav-link" href="mailto:iletisim@stucup.com">
+                  <MdOutlineEmail />
+                  iletisim@stucup.com
                 </Link>
               </li>
               <li className="nav-item">
-                <Link className="nav-link" href="tel:0123456789">
+                <Link className="nav-link" href="tel:02125623434">
                   <MdOutlineCall />
-                  0123456789
+                  02125623434
                 </Link>
               </li>
             </ul>
@@ -71,13 +71,13 @@ const Header = () => {
             <li className="nav-item">
               <Link className="nav-link" href="mailto:admin@gmail.com">
                 <MdOutlineEmail />
-                admin@gmail.com
+                iletisim@stucup.com
               </Link>
             </li>
             <li className="nav-item">
               <Link className="nav-link" href="tel:0123456789">
-              <MdOutlineCall />
-                0123456789
+                <MdOutlineCall />
+                02125623434
               </Link>
             </li>
           </ul>
