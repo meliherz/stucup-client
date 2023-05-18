@@ -1,2 +1,37 @@
+*/.DS_Store
+*_MACOSX
+*.log
+*.pyc
 node_modules
-.next
+
+.env
+
+/.htaccess
+
+.idea/
+.DS_Store
+
+# Use yarn.lock instead
+#package-lock.json
+
+# Environment variables
+.env
+
+# Logs
+logs
+*.log
+npm-debug.log*
+
+# Documentation
+docs
+
+# Runtime data
+pids
+*.pid
+*.seed
+
+
+# Optional npm cache directory
+.npm
+
+coverage
