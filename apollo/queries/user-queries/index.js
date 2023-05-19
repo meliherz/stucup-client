@@ -7,17 +7,10 @@ export const GET_USERS = gql`
         node {
           id
           username
-          displayName
+          password
+          email
           firstname
           lastname
-          profileImage
-          userRole {
-        id
-        slug
-        title
-      }
-
-
         }
       }
       pageInfo {
