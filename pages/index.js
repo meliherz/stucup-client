@@ -8,6 +8,7 @@ import Testimonial from "../components/testimonial";
 import { API_URL } from "../config";
 import RecentBlog from "../components/recent-blog";
 
+
 const inter = Inter({ subsets: ["latin"] });
 
 export default function Home({ events, blogs }) {
