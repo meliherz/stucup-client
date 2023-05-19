@@ -2,6 +2,7 @@
 *_MACOSX
 *.log
 *.pyc
+
 node_modules
 
 .env
@@ -34,4 +35,3 @@ pids
 # Optional npm cache directory
 .npm
 
-coverage
