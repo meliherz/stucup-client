@@ -8,6 +8,8 @@ node_modules
 
 /.htaccess
 
+.next/
+
 .idea/
 .DS_Store
 
