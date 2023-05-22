@@ -1,48 +1,41 @@
 import { useRouter, useSearchParams } from "next/router";
-import { useGetUsers } from "../../apollo/actions/user-actions/index.js";
+import { getObjectActions } from "../../apollo/actions";
 
 export default function LoginPage() {
     const router = useRouter();
-    const [users] = useGetUsers();
 
-    const getUser = async () => {
-        try {
-            const resp = await users({ variables: { username } 
-            })
-         return console.log(resp);
-        }
-        catch (err) {
-            console.log(err)
+    const [getObjects] = getObjectActions["useGetUsers"]();
 
+    const handleSubmit = async (event) => {
+        event.preventDefault();
+
+        const formData = new FormData(event.target);
+        const username = formData.get('username');
+        const password = formData.get('password');
+
+        const res = await fetch("/api/login", {
+            method: "POST",
+            body: JSON.stringify({
+                username,
+                password,
+            }),
+        });
+        const { success } = await res.json();
+
+        if (success) {
+            const nextUrl = searchParams.get("next");
+            router.push(nextUrl ? nextUrl : `/`);
+        } else {
+            alert('Login failed')
         }
     }
-        getUser();
+    const getUsers = async () => {
+        const { data } = await getObjects();
+        console.log(data);
+     }
 
-        const handleSubmit = async (event) => {
-            event.preventDefault();
-
-            const formData = new FormData(event.target);
-            const username = formData.get('username');
-            const password = formData.get('password');
-
-            const res = await fetch("/api/login", {
-                method: "POST",
-                body: JSON.stringify({
-                    username,
-                    password,
-                }),
-            });
-            const { success } = await res.json();
-
-            if (success) {
-                const nextUrl = searchParams.get("next");
-                router.push(nextUrl ? nextUrl : `/`);
-            } else {
-                alert('Login failed')
-            }
-        }
-
-        return (
+    return (
+        <div>
             <form onSubmit={handleSubmit}>
                 <label>
                     UserName:
@@ -52,8 +45,9 @@ export default function LoginPage() {
                     Password:
                     <input type="password" name="password"></input>
                 </label>
-                <button type="submit">Login</button>
+                <button type="submit" onClick={getUsers}> Login</button>
             </form>
-        );
-    };
+        </div>
+    );
+};
 

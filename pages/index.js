@@ -5,15 +5,14 @@ import UpcomingEvents from "../components/upcoming-events";
 import HowItWorks from "../components/how-it-works";
 import FeaturedEvents from "../components/featured-events";
 import Testimonial from "../components/testimonial";
-import { API_URL } from "../config";
 import RecentBlog from "../components/recent-blog";
-
 
 const inter = Inter({ subsets: ["latin"] });
 
 export default function Home({ events, blogs }) {
   // const eventsData = events.data;
   // const blogsData = blogs.data;
+
   return (
     <Layout title="Stucup">
       <Hero />
