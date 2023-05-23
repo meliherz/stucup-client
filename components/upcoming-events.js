@@ -37,13 +37,13 @@ const UpcomingEvents = ({ events }) => {
   return (
     <div id="upcoming-events" className="upcoming-events section-padding">
       <div className="container">
-        <SectionTitle title="Upcoming Events" />
+        <SectionTitle title="Yaklaşan Etkinlikler" />
         <Tabs
           id="controlled-tab-example"
           activeKey={key}
           onSelect={(k) => setKey(k)}
         >
-          <Tab eventKey="AllEvents" title="All Events">
+          <Tab eventKey="AllEvents" title="Tüm Etkinlikler">
             <div className="row">
               {events?.slice(0, 6).map((evt) => (
                 <div key={evt.id} className="col-md-6 col-lg-4 mb-4">
@@ -98,7 +98,7 @@ const UpcomingEvents = ({ events }) => {
               ))}
             </div>
           </Tab>
-          <Tab eventKey="corporate" title="Corporate Events">
+          <Tab eventKey="corporate" title="Kurumsal Etkinlikler">
             <div className="row">
               {corporateEvents?.slice(0, 6).map((evt) => (
                 <div key={evt.id} className="col-md-6 col-lg-4 mb-4">
@@ -153,7 +153,7 @@ const UpcomingEvents = ({ events }) => {
               ))}
             </div>
           </Tab>
-          <Tab eventKey="private" title="Private Events">
+          <Tab eventKey="private" title="Özel Etkinlikler">
             <div className="row">
               {privateEvents?.slice(0, 6).map((evt) => (
                 <div key={evt.id} className="col-md-6 col-lg-4 mb-4">
@@ -208,7 +208,7 @@ const UpcomingEvents = ({ events }) => {
               ))}
             </div>
           </Tab>
-          <Tab eventKey="charity" title="Charity Events">
+          <Tab eventKey="charity" title="Hayırseverlik Etkinlikleri">
             <div className="row">
               {charityEvents?.slice(0, 6).map((evt) => (
                 <div key={evt.id} className="col-md-6 col-lg-4 mb-4">
@@ -263,7 +263,7 @@ const UpcomingEvents = ({ events }) => {
               ))}
             </div>
           </Tab>
-          <Tab eventKey="festival" title="Festival Events">
+          <Tab eventKey="festival" title="Festival Etkinlikleri">
             <div className="row">
               {festivalEvents?.slice(0, 6).map((evt) => (
                 <div key={evt.id} className="col-md-6 col-lg-4 mb-4">
@@ -318,7 +318,7 @@ const UpcomingEvents = ({ events }) => {
               ))}
             </div>
           </Tab>
-          <Tab eventKey="sports" title="Sports Events">
+          <Tab eventKey="sports" title="Spor Etkinlikleri">
             <div className="row">
               {sportsEvents?.slice(0, 6).map((evt) => (
                 <div key={evt.id} className="col-md-6 col-lg-4 mb-4">
@@ -373,7 +373,7 @@ const UpcomingEvents = ({ events }) => {
               ))}
             </div>
           </Tab>
-          <Tab eventKey="concert" title="Concert Events">
+          <Tab eventKey="concert" title="Konser Etkinlikleri">
             <div className="row">
               {concertEvents?.slice(0, 6).map((evt) => (
                 <div key={evt.id} className="col-md-6 col-lg-4 mb-4">

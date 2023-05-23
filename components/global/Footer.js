@@ -12,11 +12,11 @@ const Footer = () => {
             <div className="row">
               <div className="footer__top__content">
                 <h2>
-                  Do you have any question? <br />
-                  Feel free to contact me.
+                  Kafanıza takılan bir yer mi var? <br />
+                  Hemen bize ulaşın.
                 </h2>
                 <h2 className="display-4">
-                  <Link href="tel:610383766284">+0123456789</Link>
+                  <Link href="tel:610383766284">+02125647887</Link>
                 </h2>
                 <Link href="/contact" className="smooth button button__primary">
                   <span>Bize Ulaşın</span>
@@ -78,7 +78,7 @@ const Footer = () => {
             <div className="row">
               <div className="col-12">
                 <p className="m-0 text-center">
-                  &copy; 2023 All right reserved. Made with ❤ by FAHAD
+                  &copy; Copyright © Stucup 2023. Tüm hakları saklıdır.
                 </p>
               </div>
             </div>

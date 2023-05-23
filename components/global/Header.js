@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { Navbar } from "react-bootstrap";
-import { MdOutlineEmail, MdOutlineCall } from "react-icons/md";
+import { MdOutlineEmail} from "react-icons/md";
 
 const Header = () => {
   return (
@@ -53,20 +53,12 @@ const Header = () => {
             </ul>
             <ul className="navbar-nav navbar__right d-block d-lg-none">
               <li className="nav-item">
-                <Link className="nav-link" href="mailto:iletisim@stucup.com">
-                  <MdOutlineEmail />
-                  iletisim@stucup.com
-                </Link>
-              </li>
-              <li className="nav-item">
-                <Link className="nav-link" href="tel:02125623434">
-                  <MdOutlineCall />
-                  02125623434
+                <Link className="nav-link" href="/profile">
+                  Admin
                 </Link>
               </li>
             </ul>
           </Navbar.Collapse>
-
           <ul className="navbar-nav navbar__right d-none d-lg-flex align-items-center gap-2">
             <li className="nav-item">
               <Link className="nav-link" href="mailto:admin@gmail.com">
@@ -75,9 +67,8 @@ const Header = () => {
               </Link>
             </li>
             <li className="nav-item">
-              <Link className="nav-link" href="tel:0123456789">
-                <MdOutlineCall />
-                02125623434
+              <Link className="nav-link" href="/profile">
+                Profilim
               </Link>
             </li>
           </ul>
