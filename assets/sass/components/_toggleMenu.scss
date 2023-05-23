@@ -115,9 +115,11 @@
       .header,
       .header ul li {
         padding: 0;
+        display: flex;
       }
       .container {
         max-width: 100%;
+        display: flex;
       }
       .navbar-nav {
         .nav-link {
@@ -208,7 +210,7 @@
   }
   
   .pages-header {
-    background-color: $color-light;
+    background-color: $color-black;
   }
   
   // PAGES HEADER //
@@ -217,3 +219,32 @@
       background-color: $color-danger;
     }
   }
+
+  .toggle-menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    z-index: 9999;
+    width: 280px; // İsteğe bağlı olarak genişliği ayarlayabilirsiniz
+    background-color: #fff; // İstediğiniz arkaplan rengini belirleyin
+    overflow-y: auto; // Menü içeriği fazla olduğunda kaydırma çubuğu görüntülenmesini sağlar
+    
+    // İçerik stil ayarlamaları
+    .nav-item {
+      // Burada menü öğelerinin stilini özelleştirebilirsiniz
+      margin-bottom: 10px;
+      
+      .nav-link {
+        // Menü öğesi bağlantı stilini ayarlayabilirsiniz
+        color: #000;
+        text-decoration: none;
+        
+        &:hover {
+          // Mouse üzerine gelindiğinde menü öğesi rengini değiştirebilirsiniz
+          color: #ff0000;
+        }
+      }
+    }
+  }
+  

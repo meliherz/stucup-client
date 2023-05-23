@@ -8,9 +8,13 @@ import { API_URL } from "../../config";
 import Pagination from "../../components/pagination";
 import { Navbar } from "react-bootstrap";
 import ToggleMenu from "../../components/toggleMenu";
+import { useRouter } from 'next/router';
 
-const Universities = ({ blogs }) => {
+const Universities = ({  }) => {
 
+  const router = useRouter();
+  const { slug } = router.query;
+  console.log("slug", slug);
 
   //pagination
   const [currentPage, setCurrentPage] = useState(1);
