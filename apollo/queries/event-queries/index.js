@@ -14,6 +14,7 @@ export const GET_EVENTS = gql`
         eventImage
   }
 }
+
 `;
 
 export const CREATE_EVENT = gql`

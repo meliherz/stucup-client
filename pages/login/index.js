@@ -3,13 +3,14 @@ import { getObjectActions } from "../../apollo/actions";
 
 export default function Login() {
 
-    const [getObjects] = getObjectActions["useGetUsers"]();
+    const [getObjects] = getObjectActions["useGetEvents"]();
 
     const getUsers = async () => {
         const { data } = await getObjects();
         console.log(data);
     }
     getUsers();
+    
     const router = useRouter();
 
     return (

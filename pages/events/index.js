@@ -12,37 +12,39 @@ import SectionTitle from "../../components/global/section-title";
 import Link from "next/link";
 import Pagination from "../../components/pagination";
 import InnerPageLayout from "../../components/inner-page-layout";
-import { getObjectActions } from "../../apollo/actions/index.js"
+import { getObjectActions } from "../../apollo/actions/index"
 
 const EventPage = () => {
   const [key, setKey] = useState("AllEvents");
-  const [data, setData] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
   const [postsPerPage] = useState(6);
-
-  useEffect(() => {
-    const fetchData = async () => {
-      const [getObjects] = getObjectActions["useGetEvents"]();
-      const { data } = await getObjects();
-      setData(data);
-    };
-    fetchData();
-  }, []);
+  const [getObjects] = getObjectActions["useGetEvents"]();
+  const [eventData, setEventData] = useState([]);
   
-  const sportsEvents = data?.filter(evt => evt.attributes.category ==="sports")
-  const corporateEvents = data?.filter(evt => evt.attributes.category ==="corporate")
-  const privateEvents = data?.filter(evt => evt.attributes.category ==="private")
-  const charityEvents = data?.filter(evt => evt.attributes.category ==="charity")
-  const festivalEvents = data?.filter(evt => evt.attributes.category ==="festival")
-  const concertEvents = data?.filter(evt => evt.attributes.category ==="concert")
+  useEffect(() => {
+      const getUsers = async () => {
+          const { data } = await getObjects();
+          return setEventData(data)
+      };
+      getUsers();
+  }, [getObjects]);
+
+
+  
+  // const sportsEvents = data?.filter(evt => evt.attributes.category ==="sports")
+  // const corporateEvents = data?.filter(evt => evt.attributes.category ==="corporate")
+  // const privateEvents = data?.filter(evt => evt.attributes.category ==="private")
+  // const charityEvents = data?.filter(evt => evt.attributes.category ==="charity")
+  // const festivalEvents = data?.filter(evt => evt.attributes.category ==="festival")
+  // const concertEvents = data?.filter(evt => evt.attributes.category ==="concert")
   
   //pagination
 
-  const indexOfLastPost = currentPage * postsPerPage;
-  const indexOfFirstPost = indexOfLastPost - postsPerPage;
-  const eventData = data?.slice(indexOfFirstPost, indexOfLastPost);
+  // const indexOfLastPost = currentPage * postsPerPage;
+  // const indexOfFirstPost = indexOfLastPost - postsPerPage;
+  // const eventData = data?.slice(indexOfFirstPost, indexOfLastPost);
 
-  const paginate = (pageNumber) => setCurrentPage(pageNumber);
+  // const paginate = (pageNumber) => setCurrentPage(pageNumber);
   return (
     <Layout title="Event Page">
        <InnerPageLayout title="All Events" />

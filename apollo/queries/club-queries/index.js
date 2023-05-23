@@ -1,10 +1,8 @@
 import { gql } from "@apollo/client";
 
 export const GET_CLUBS = gql`
-query Clubs($first: Int, $after: String, $before: String, $skip: Int, $search: String) {
-  clubs(first: $first, after: $after, before: $before, skip: $skip, search: $search) {
-    edges {
-      node {
+query Clubs {
+  clubs {
         id
         clubname
         university
@@ -14,8 +12,6 @@ query Clubs($first: Int, $after: String, $before: String, $skip: Int, $search: S
         members
         events
         clubImage
-      }
-    }
   }
 }
 
