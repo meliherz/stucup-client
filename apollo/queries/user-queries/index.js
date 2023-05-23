@@ -29,7 +29,7 @@ query Users($objectId: ID!) {
 
 //Düzenle
 export const CREATE_USER = gql`
-  mutation UserCreate($input: CreateUserInput!) {
+  mutation Mutation($input: CreateUserInput!) {
     userCreate(input: $input) {
       id
       username
