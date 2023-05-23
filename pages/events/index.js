@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState,  useEffect  } from "react";
 import { Tab, Tabs } from "react-bootstrap";
 import Layout from "../../components/global/layout";
 import {
@@ -10,13 +10,25 @@ import {
 } from "react-icons/im";
 import SectionTitle from "../../components/global/section-title";
 import Link from "next/link";
-import { API_URL } from "../../config";
 import Pagination from "../../components/pagination";
 import InnerPageLayout from "../../components/inner-page-layout";
+import { getObjectActions } from "../../apollo/actions/index.js"
 
-const EventPage = ({events}) => {
+const EventPage = () => {
   const [key, setKey] = useState("AllEvents");
-  const { data } = events;
+  const [data, setData] = useState([]);
+  const [currentPage, setCurrentPage] = useState(1);
+  const [postsPerPage] = useState(6);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      const [getObjects] = getObjectActions["useGetEvents"]();
+      const { data } = await getObjects();
+      setData(data);
+    };
+    fetchData();
+  }, []);
+  
   const sportsEvents = data?.filter(evt => evt.attributes.category ==="sports")
   const corporateEvents = data?.filter(evt => evt.attributes.category ==="corporate")
   const privateEvents = data?.filter(evt => evt.attributes.category ==="private")
@@ -25,8 +37,6 @@ const EventPage = ({events}) => {
   const concertEvents = data?.filter(evt => evt.attributes.category ==="concert")
   
   //pagination
-  const [currentPage, setCurrentPage] = useState(1);
-  const [postsPerPage] = useState(6);
 
   const indexOfLastPost = currentPage * postsPerPage;
   const indexOfFirstPost = indexOfLastPost - postsPerPage;
@@ -432,13 +442,4 @@ const EventPage = ({events}) => {
 
 export default EventPage;
 
-// export async function getStaticProps() {
-//   const res = await fetch(`${API_URL}/api/events?populate=*`);
-//   const events = await res.json();
-
-//   return {
-//     props: { events },
-//     revalidate: 1,
-//   };
-// }
 

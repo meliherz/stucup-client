@@ -1,10 +1,8 @@
 import { gql } from "@apollo/client";
 
-const GET_EVENTS = gql`
-query Events($first: Int, $after: String, $before: String, $skip: Int, $search: String) {
-  events(first: $first, after: $after, before: $before, skip: $skip, search: $search) {
-    edges {
-      node {
+export const GET_EVENTS = gql`
+  query Events {
+    events {
         id
         eventname
         clubId
@@ -14,14 +12,11 @@ query Events($first: Int, $after: String, $before: String, $skip: Int, $search: 
         location
         participants
         eventImage
-      }
-    }
   }
 }
-
 `;
 
-const CREATE_EVENT = gql`
+export const CREATE_EVENT = gql`
 mutation EventCreate($input: CreateEventInput!) {
   eventCreate(input: $input) {
     id
