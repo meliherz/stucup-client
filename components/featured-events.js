@@ -8,7 +8,6 @@ import {
   ImClock,
 } from "react-icons/im";
 import Link from "next/link";
-import { API_URL } from "../config";
 
 const FeaturedEvents = ({ events }) => {
   const data = events?.filter(evt => evt?.attributes?.eventType === "featured")

@@ -15,12 +15,10 @@ const Hero = () => {
           <div className="row justify-content-center">
             <div className="col-xxl-6 col-xl-7 col-lg-8 col-md-10 text-center">
               <h2 className="hero__title">
-                Eğlen, Öğren, Sosyalleş !
+              Keşfet, Öğren, Sosyalleş !
               </h2>
               <p className="hero__description mt-4">
-                Türkiye çapında bütün üniversite etkinliklerinin toplandığı yerdesiniz.
-                İstediğiniz etkinliğe kolay bir şekilde kayıt olun.
-                Her üniversiteden haberiniz olsun.
+              Türkiye'nin dört bir yanından üniversite etkinliklerinin buluşma noktasındasınız. İstediğiniz etkinliğe kolayca katılın ve deneyimleyin. Her üniversiteyle ilgili haberler sizinle olsun
               </p>
               <div className=" hero__button mt-5">
                 <button
@@ -30,7 +28,7 @@ const Hero = () => {
                   }}
                 >
                   {" "}
-                  <BiLoader /> Upcoming Events
+                  <BiLoader /> Yaklaşan Etkinlikler
                 </button>
                 <button
                   onClick={() => {
@@ -39,12 +37,12 @@ const Hero = () => {
                   }}
                 >
                   {" "}
-                  <FaRegLightbulb /> Featured Events
+                  <FaRegLightbulb /> Öne Çıkan Etkinlikler
                 </button>
                 <Link href="/events">
                   <button>
                     {" "}
-                    <MdOutlineEvent /> All Events
+                    <MdOutlineEvent /> Bütün Etkinlikler
                   </button>
                 </Link>
               </div>

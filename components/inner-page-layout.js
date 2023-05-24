@@ -9,7 +9,7 @@ const InnerPageLayout = ({ title }) => {
           <h3 className="inner-page__title">{title}</h3>
           <ul>
             <li>
-              <Link href="/">Home</Link>
+              <Link href="/">Ana Sayfa</Link>
               <FaAngleRight />
             </li>
             <li>{title}</li>

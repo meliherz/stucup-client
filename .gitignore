@@ -6,6 +6,8 @@
 *.pyc
 
 
+.next/
+
 .idea/
 .DS_Store
 

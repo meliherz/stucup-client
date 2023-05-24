@@ -14,7 +14,7 @@ const Testimonial = () => {
       <div className="container position-relative">
         <div className="row">
             <div className="col-10 col-md-8">
-            <SectionTitle title="Join 300+ ongoing events, marathons, parties, movements" position="left"/>
+            <SectionTitle title="Ayın En'leri" position="left"/>
             </div>
         </div>
         <Swiper
@@ -40,9 +40,7 @@ const Testimonial = () => {
             <div className="testimonial__item">
               <p className="user__description">
                 "Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Voluptate consequuntur eius sunt cum laborum harum provident
-                error animi ipsam modi debitis dignissimos veniam repudiandae
-                mollitia sed voluptates?"
+             
               </p>
               <div className="user">
                 <div className="user__image">
