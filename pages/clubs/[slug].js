@@ -9,8 +9,9 @@ export default function UniversityPage() {
   const { slug } = router.query;
 
   return (
-    <Layout title={slug}>
+    <Layout title={"slug"}>
       <InnerPageLayout title={slug} />
     </Layout>
   );
 }
+

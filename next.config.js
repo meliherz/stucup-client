@@ -9,10 +9,13 @@ module.exports = {
   async rewrites() {
     return [
       {
+        source: '/clubs/:slug',
+        destination: '/university-page',
+      },
+      {
         source: '/university/:slug',
         destination: '/university-page',
       },
     ];
   },
 };
-

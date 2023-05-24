@@ -14,7 +14,7 @@ const Testimonial = () => {
       <div className="container position-relative">
         <div className="row">
             <div className="col-10 col-md-8">
-            <SectionTitle title="Ayın En İyi Etkinlikleri" position="left"/>
+            <SectionTitle title="Ayın En'leri" position="left"/>
             </div>
         </div>
         <Swiper

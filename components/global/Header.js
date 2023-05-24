@@ -41,8 +41,8 @@ const Header = () => {
                 </Link>
               </li>
               <li className="nav-item">
-                <Link className="nav-link" href="/blogs">
-                  Bloglar
+                <Link className="nav-link" href="/clubs">
+                  Kulüpler
                 </Link>
               </li>
               <li className="nav-item">
@@ -60,12 +60,6 @@ const Header = () => {
             </ul>
           </Navbar.Collapse>
           <ul className="navbar-nav navbar__right d-none d-lg-flex align-items-center gap-2">
-            <li className="nav-item">
-              <Link className="nav-link" href="mailto:admin@gmail.com">
-                <MdOutlineEmail />
-                iletisim@stucup.com
-              </Link>
-            </li>
             <li className="nav-item">
               <Link className="nav-link" href="/profile">
                 Profilim
