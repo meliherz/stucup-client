@@ -13,6 +13,7 @@ const Clubs = () => {
   const [clubsData, setClubsData] = useState([]);
   const [getObjectsUniversities] = getObjectActions["useGetUniversities"]();
   const [unisData, setUnisData] = useState([]);
+  const [getClubByUniversityId] = getObjectActions["useGetClubByUniversityId"]();
 
   useEffect(() => {
     const getClubs = async () => {
@@ -31,10 +32,15 @@ const Clubs = () => {
   }, []);
 
   const handleUniversityClick = (university) => {
-    console.log("clubsDAta",clubsData)
-    const filteredClubs = Object.values(clubsData.clubs).map((club) => (club.university.id)).filter((item) => item === university.id);
-    console.log("filtered", filteredClubs)
-    setClubsData(filteredClubs);
+    const clubToUniversityId = university.id;
+    const getClubByUniId = async () => {
+      const { data } = await getClubByUniversityId({
+        variables: { clubToUniversityId },
+      });
+      setClubsData(data);
+  }
+    
+    getClubByUniId();
   };
 
   //pagination

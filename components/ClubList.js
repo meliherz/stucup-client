@@ -1,9 +1,17 @@
 import Link from "next/link";
 import Image from "next/image";
+import { useState } from 'react';
 
 
-function ClubList({clubs}) {
+function ClubList({clubs}) {    
 
+    const [clubId, setClubId] = useState(null);
+
+    const handleChange = (clubId) => {
+        setClubId(clubId);
+    }
+
+    console.log(clubId)
     return (
         <div className="row">
             {Object.values(clubs).map((item) => (
@@ -34,8 +42,10 @@ function ClubList({clubs}) {
                                     </ul>
                                 </div>
                             </div>
+                            <button onClick={()=> handleChange(club.id)}>dsadas</button>
                         </article>
                     </div>
+                    
                 ))
             ))}
         </div>
