@@ -51,15 +51,6 @@ const Clubs = () => {
         <div className="container" style={{ display: "flex", gap: "20px" }}>
           <LeftSidebar unis={unisData} handleUniversityClick={handleUniversityClick} />
           <ClubList clubs={clubsData} />
-          {1 > 6 ? (
-            <Pagination
-              postsPerPage={postsPerPage}
-              totalPosts={data?.length}
-              paginate={paginate}
-            />
-          ) : (
-            ""
-          )}
         </div>
       </div>
     </Layout>

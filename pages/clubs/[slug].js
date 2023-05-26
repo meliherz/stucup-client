@@ -34,7 +34,7 @@ export default function ClubDetails() {
       <div className="row">
         { (!clubData) ? <div className='row'> Loading... </div> :
         Object.values(clubData).map((club) => (
-            <div key={club.events.id} className="col-md-6 col-lg-4 mb-4">
+            <div key={club?.events?.id} className="col-md-6 col-lg-4 mb-4">
               <article className="blog__single-post h-100 translateEffect1">
                 <div className="blog__single-post__image">
                   <Link href={`/clubs/${club?.id}`}>
