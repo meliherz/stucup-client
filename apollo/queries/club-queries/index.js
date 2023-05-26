@@ -13,11 +13,39 @@ query Clubs {
         admin
         email
         members
-        events
+        events {
+          id
+          eventname
+        }
         clubImage
   }
 }
+`;
 
+export const GET_CLUB_BY_ID = gql`
+query Query($clubId: ID!) {
+  club(id: $clubId) {
+    ... on Club {
+      id
+      description
+      clubname
+      clubImage
+      email
+      university {
+        id
+        universityName
+      }
+      events {
+        id
+        eventname
+        eventImage
+        eventDate
+        description
+        location
+      }
+    }
+  }
+}
 `;
 
 export const GET_CLUBS_BY_UNIVERSITY = gql`

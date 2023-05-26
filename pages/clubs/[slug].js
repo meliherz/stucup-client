@@ -34,7 +34,7 @@ export default function ClubDetails() {
       <div className="row">
         { (!clubData) ? <div className='row'> Loading... </div> :
         Object.values(clubData).map((club) => (
-            <div key={club.id} className="col-md-6 col-lg-4 mb-4">
+            <div key={club.events.id} className="col-md-6 col-lg-4 mb-4">
               <article className="blog__single-post h-100 translateEffect1">
                 <div className="blog__single-post__image">
                   <Link href={`/clubs/${club?.id}`}>
@@ -44,11 +44,11 @@ export default function ClubDetails() {
                   <div className="blog__single-post__content">
                     <h2 className="fs-4">
                       <Link href={`/clubs/${club?.id}`}>
-                        {club?.clubname}
+                        {club?.events?.eventname}
                       </Link>
                     </h2>
                     <p className="m-0">
-                      {club?.description?.slice(0, 95)}..
+                      {club?.events?.description.slice(0, 95)}..
                     </p>
                   </div>
                   <div className="blog__single-post__meta">
