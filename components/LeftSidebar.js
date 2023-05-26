@@ -1,34 +1,23 @@
 import Link from 'next/link'
-import { Navbar } from 'react-bootstrap';
-import { useState, useEffect } from 'react';
-import { getObjectActions } from '../apollo/actions/index'
 
-function LeftSidebar() {
-  const [getObjects] = getObjectActions["useGetUniversities"]();
-  const [universityData, setUniversitiesData] = useState([]);
 
-  useEffect(() => {
-    const getUnivesities = async () => {
-      const { data } = await getObjects();
-      return setUniversitiesData(data)
-    };
-    getUnivesities();
-  }, [getObjects]);
-
+function LeftSidebar({unis, handleUniversityClick}) {
+  
+  const handleUniversity = () =>{
+    handleUniversityClick()
+  }
   return (
     <div className='left-sidebar'>
       <h3>Üniversiteler</h3>
       <hr></hr>
       <ul className="navbar-nav">
-        {Object.values(universityData).map((item) => (
-          item.map((university) => (
+          {unis.map((university) => (
             <li className="nav-item" key={university.id}>
-              <Link href={`/university/${university.slug}`}>
+              <a href= "#" onClick={() => handleUniversity()} >
                 {university.universityName}
-              </Link>
+              </a>
             </li>
-          ))
-        ))}
+          ))}
       </ul>
     </div>
   )

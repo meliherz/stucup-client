@@ -5,7 +5,10 @@ query Clubs {
   clubs {
         id
         clubname
-        university
+        university {
+          id
+          universityName
+        }
         description
         admin
         email
