@@ -33,7 +33,10 @@ const Clubs = () => {
   }, []);
 
   const handleUniversityClick = (university) => {
-    console.log("42423")
+    console.log("clubsDAta",clubsData)
+    const filteredClubs = Object.values(clubsData.clubs).map((club) => (club.university.id)).filter((item) => item === university.id);
+    console.log("filtered", filteredClubs)
+    setClubsData(filteredClubs);
   };
 
   //pagination
@@ -48,7 +51,7 @@ const Clubs = () => {
       <InnerPageLayout title="Kulüpler" />
       <div className="blog section-padding">
         <div className="container" style={{ display: "flex", gap: "20px" }}>
-          <LeftSidebar unis={unisData} func={handleUniversityClick()} />
+          <LeftSidebar unis={unisData} handleUniversityClick={handleUniversityClick} />
           <ClubList clubs={clubsData} />
           {1 > 6 ? (
             <Pagination
