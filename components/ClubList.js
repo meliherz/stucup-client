@@ -10,17 +10,16 @@ function ClubList({clubs}) {
     const handleChange = (clubId) => {
         setClubId(clubId);
     }
-
-    console.log(clubId)
     return (
         <div className="row">
+
             {Object.values(clubs).map((item) => (
                 item.map((club) => (
                     <div key={club.id} className="col-md-6 col-lg-4 mb-4">
                         <article className="blog__single-post h-100 translateEffect1">
                             <div className="blog__single-post__image">
                                 <Link href={`/clubs/${club?.id}`}>
-                                    <Image src={club?.clubImage} width={170} height={100} />
+                                    <img src="https://media.istockphoto.com/id/1385170533/tr/foto%C4%9Fraf/business-people-greet-each-other-during-a-coffee-break-at-a-conference.jpg?s=1024x1024&w=is&k=20&c=BE9t7LdK65OXjk-JNiWWt6owg8ZQZIRpiQf5WIckTJQ=" style={{width:"170px", height:"100px"}} />
                                 </Link>
                             </div>
                             <div className="blog__single-post__body">

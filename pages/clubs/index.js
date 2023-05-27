@@ -20,7 +20,7 @@ const Clubs = () => {
       const { data } = await getObjects();
       setClubsData(data)
     };
-
+    
     const getUniversities = async () => {
       const { data } = await getObjectsUniversities();
       setUnisData(data.universities);

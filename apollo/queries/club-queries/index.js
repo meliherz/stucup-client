@@ -3,21 +3,14 @@ import { gql } from "@apollo/client";
 export const GET_CLUBS = gql`
 query Clubs {
   clubs {
-        id
-        clubname
-        university {
-          id
-          universityName
-        }
-        description
-        admin
-        email
-        members
-        events {
-          id
-          eventname
-        }
-        clubImage
+    id
+    university {
+      id
+      universityName
+    }
+    description
+    clubname
+    clubImage
   }
 }
 `;

@@ -37,13 +37,13 @@ export default function ClubDetails() {
             <div key={club?.events?.id} className="col-md-6 col-lg-4 mb-4">
               <article className="blog__single-post h-100 translateEffect1">
                 <div className="blog__single-post__image">
-                  <Link href={`/clubs/${club?.id}`}>
+                  <Link href={`/events/${club?.events?.id}`}>
                   </Link>
                 </div>
                 <div className="blog__single-post__body">
                   <div className="blog__single-post__content">
                     <h2 className="fs-4">
-                      <Link href={`/clubs/${club?.id}`}>
+                      <Link href={`/events/${club?.events?.id}`}>
                         {club?.events?.eventname}
                       </Link>
                     </h2>

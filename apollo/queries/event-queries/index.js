@@ -1,20 +1,41 @@
 import { gql } from "@apollo/client";
 
 export const GET_EVENTS = gql`
-  query Events {
-    events {
-        id
-        eventname
-        clubId
-        description
-        organizer
-        eventDate
-        location
-        participants
-        eventImage
+query Query {
+  events {
+    id
+    location
+    eventname
+    eventTime
+    eventImage
+    eventDate
+    description
+    category
+    capacity
+    organizer
+    participants
   }
 }
+`;
 
+export const GET_EVENT_BY_ID = gql`
+query Query($eventId: ID!) {
+  event(id: $eventId) {
+    ... on Event {
+      id
+      eventname
+      eventTime
+      eventImage
+      eventDate
+      description
+      category
+      capacity
+      location
+      organizer
+      participants
+    }
+  }
+}
 `;
 
 export const CREATE_EVENT = gql`
