@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { Autoplay, Pagination, Navigation } from "swiper";
 import "swiper/css";
 import "swiper/css/autoplay";
@@ -7,6 +8,7 @@ import SectionTitle from "./global/section-title";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { FaStar } from "react-icons/fa";
 import { MdOutlineKeyboardArrowLeft, MdOutlineNavigateNext } from "react-icons/md";
+import { getObjectActions } from "../apollo/actions";
 
 const BestClubs = () => {
   return (
