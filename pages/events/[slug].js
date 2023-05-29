@@ -6,6 +6,7 @@ import { FaUserCircle } from "react-icons/fa";
 import { ImLocation2, ImTicket, ImCalendar, ImPriceTags, ImClock } from "react-icons/im";
 import InnerPageLayout from "../../components/inner-page-layout";
 import Link from "next/link";
+import RegisterforEvent from "../../components/RegisterforEvent";
 import SectionTitle from "../../components/global/section-title";
 import md from 'markdown-it';
 
@@ -27,7 +28,7 @@ const EventSinglePage = ({ }) => {
     };
     getEvent();
   }, [slug])
-  console.log("eventDetail", eventData)
+
   return (
     <>
       {(!eventData) ? <div className='row'> Loading... </div> :
@@ -87,9 +88,7 @@ const EventSinglePage = ({ }) => {
                           <h5>{eventData?.event?.capacity} kişilik kontenjan vardır.</h5>
                         </div>
                       </div>
-                      <Link className="button w-100 mt-4" target="_blank" href={`/event-registration/${slug}`}>
-                        Etkinliğe Kayıt Ol
-                      </Link>
+                      <RegisterforEvent />
                     </div>
                   </div>
                 </div>
