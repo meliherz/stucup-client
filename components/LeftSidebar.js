@@ -3,7 +3,6 @@ import Link from 'next/link'
 
 function LeftSidebar({ unis, handleUniversityClick, handleAllUniversities }) {
 
-
   const handleUniversity = (university) => {
     handleUniversityClick(university);
   };

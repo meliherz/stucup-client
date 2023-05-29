@@ -28,7 +28,6 @@ export default function ClubDetails() {
   }, [slug])
 
   return (
-    //Club yerine club'ın etkinliklerini çekeceğiz onları bastıracağız.
     <Layout title={clubData?.club?.clubname || ""}>
       <InnerPageLayout title={clubData?.club?.clubname || ""} />
       <div className="row">

@@ -27,7 +27,6 @@ const EventSinglePage = ({ }) => {
     };
     getEvent();
   }, [slug])
-  console.log("eventDetail", eventData)
   return (
     <>
       {(!eventData) ? <div className='row'> Loading... </div> :
