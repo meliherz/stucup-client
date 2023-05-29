@@ -42,14 +42,14 @@ const EventSinglePage = ({ }) => {
                   <img
                     className="w-100 object-fit-cover"
                     src={eventData?.event?.eventImage}
-                    alt=""
+                    alt={eventData?.event?.eventname}
                   />
-                  <h4 className="pt-2 mb-2">About {eventData?.event?.description}</h4>
+                  <h3 className="pt-2 mb-2"><label>Etkinlik Hakkında</label><br/><hr/><h4>{eventData?.event?.description}</h4></h3>
                   <div className="singlePage__event-description" />
                 </div>
                 <div className="col-lg-4">
                   <div className="singlePage__sidebar">
-                    <h2 className="singlePage__sidebar--title">Event details</h2>
+                    <h2 className="singlePage__sidebar--title">Etkinlik Detayları</h2>
                     <div className="singlePage__sidebar--details">
                       <div className="d-flex align-items-center gap-4 mb-4 mb-lg-5">
                         <div className="singlePage__sidebar--icon">
@@ -87,7 +87,7 @@ const EventSinglePage = ({ }) => {
                           <h5>{eventData?.event?.capacity} kişilik kontenjan vardır.</h5>
                         </div>
                       </div>
-                      <Link className="button w-100 mt-4" target="_blank" href="/event-registration/${}">
+                      <Link className="button w-100 mt-4" target="_blank" href={`/event-registration/${slug}`}>
                         Etkinliğe Kayıt Ol
                       </Link>
                     </div>

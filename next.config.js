@@ -13,8 +13,8 @@ module.exports = {
         destination: '/clubs/:slug',
       },
       {
-        source: '/university/:slug',
-        destination: '/university-page',
+        source: '/events/:slug/:slug',
+        destination: '/event-registration',
       },
     ];
   },

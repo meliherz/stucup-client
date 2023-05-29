@@ -25,7 +25,8 @@ const EventPage = () => {
       return setEventData(data)
     };
     getUsers();
-  }, []);
+  }, [getObjects]);
+
   return (
     <Layout title="Event Page">
       <InnerPageLayout title="Etkinlikler" />
@@ -46,7 +47,7 @@ const EventPage = () => {
                         <div className="image">
                           <img
                             className="img-fluid"
-                            src="https://upload.wikimedia.org/wikipedia/tr/3/31/Kul%C3%BCp.jpg"
+                            src={evt.eventImage}
                             alt={evt.eventname}
                           />
                           <div className="popular">
