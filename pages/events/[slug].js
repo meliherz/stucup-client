@@ -87,7 +87,7 @@ const EventSinglePage = ({ }) => {
                           <h5>{eventData?.event?.capacity} kişilik kontenjan vardır.</h5>
                         </div>
                       </div>
-                      <Link className="button w-100 mt-4" target="_blank" href="https://eticket.railway.gov.bd/">
+                      <Link className="button w-100 mt-4" target="_blank" href="/event-registration/${}">
                         Etkinliğe Kayıt Ol
                       </Link>
                     </div>
