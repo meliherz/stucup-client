@@ -20,8 +20,8 @@ query Query($clubId: ID!) {
   club(id: $clubId) {
     ... on Club {
       id
-      description
       clubname
+      description
       clubImage
       email
       university {
@@ -31,10 +31,13 @@ query Query($clubId: ID!) {
       events {
         id
         eventname
-        eventImage
-        eventDate
         description
+        eventDate
+        eventTime
+        eventImage
+        category
         location
+        capacity
       }
     }
   }

@@ -31,6 +31,11 @@ const Clubs = () => {
 
   }, []);
 
+  const getClubs = async () => { 
+    const { data } = await getObjects();
+    setClubsData(data)
+  }
+
   const handleUniversityClick = (university) => {
     const clubToUniversityId = university.id;
     const getClubByUniId = async () => {
@@ -55,7 +60,7 @@ const Clubs = () => {
       <InnerPageLayout title="Kulüpler" />
       <div className="blog section-padding">
         <div className="container" style={{ display: "flex", gap: "20px" }}>
-          <LeftSidebar unis={unisData} handleUniversityClick={handleUniversityClick} />
+          <LeftSidebar unis={unisData} handleUniversityClick={handleUniversityClick} handleAllUniversities={getClubs} />
           <ClubList clubs={clubsData} />
         </div>
       </div>

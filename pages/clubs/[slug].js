@@ -26,29 +26,38 @@ export default function ClubDetails() {
     };
     getClub();
   }, [slug])
-  console.log(clubData)
+
   return (
     //Club yerine club'ın etkinliklerini çekeceğiz onları bastıracağız.
     <Layout title={clubData?.club?.clubname || ""}>
       <InnerPageLayout title={clubData?.club?.clubname || ""} />
       <div className="row">
-        { (!clubData) ? <div className='row'> Loading... </div> :
+        { (!clubData) ? <div className='row'> Loading... </div> : 
         Object.values(clubData).map((club) => (
-            <div key={club?.events?.id} className="col-md-6 col-lg-4 mb-4">
+            <div key={club?.events[0]?.id} className="col-md-6 col-lg-4 mb-4">
               <article className="blog__single-post h-100 translateEffect1">
                 <div className="blog__single-post__image">
-                  <Link href={`/events/${club?.events?.id}`}>
+                  <Link href={`/events/${club?.events[0]?.id}`}>
                   </Link>
                 </div>
                 <div className="blog__single-post__body">
                   <div className="blog__single-post__content">
                     <h2 className="fs-4">
-                      <Link href={`/events/${club?.events?.id}`}>
-                        {club?.events?.eventname}
+                      <Link href={`/events/${club?.events[0]?.id}`}>
+                        {club?.events[0]?.eventname}
                       </Link>
                     </h2>
+                    <Link href={`/events/${club?.events[0]?.id}`}>
+                    <div className="image">
+                          <img
+                            className="img-fluid"
+                            src={club?.events[0]?.eventImage}
+                            alt={club?.events[0]?.eventname}
+                          />
+                        </div>
+                      </Link>
                     <p className="m-0">
-                      {club?.events?.description.slice(0, 95)}..
+                      {club?.events[0]?.description?.slice(0, 95)}..
                     </p>
                   </div>
                   <div className="blog__single-post__meta">

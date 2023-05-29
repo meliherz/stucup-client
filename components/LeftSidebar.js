@@ -1,7 +1,7 @@
 import Link from 'next/link'
 
 
-function LeftSidebar({ unis, handleUniversityClick }) {
+function LeftSidebar({ unis, handleUniversityClick, handleAllUniversities }) {
 
 
   const handleUniversity = (university) => {
@@ -9,7 +9,9 @@ function LeftSidebar({ unis, handleUniversityClick }) {
   };
   return (
     <div className='left-sidebar'>
+      <a href='#' onClick={()=>{handleAllUniversities()}}>
       <h3>Üniversiteler</h3>
+      </a>
       <hr></hr>
       <ul className="navbar-nav">
         {unis.map((university) => (
@@ -17,6 +19,7 @@ function LeftSidebar({ unis, handleUniversityClick }) {
             <a href="#" onClick={() => handleUniversity(university)}>
               {university.universityName}
             </a>
+            <hr></hr>
           </li>
         ))}
       </ul>
