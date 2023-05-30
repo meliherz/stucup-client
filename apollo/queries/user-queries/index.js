@@ -13,14 +13,16 @@ export const GET_USERS = gql`
   }
 `;
 
-export const GET_USER_BY_ID = gql` 
-query Users($objectId: ID!) {
-  user(id: $objectId) {
+export const GET_USER_BY_ID = gql`
+query Query($userId: ID!) {
+  user(id: $userId) {
     ... on User {
       id
+      followsclub
+      lastname
+      role
       username
       firstname
-      lastname
       email
     }
   }
@@ -29,12 +31,18 @@ query Users($objectId: ID!) {
 
 //Düzenle
 export const CREATE_USER = gql`
-  mutation Mutation($input: CreateUserInput!) {
-    userCreate(input: $input) {
-      id
-      username
-    }
+mutation Mutation($input: CreateUserInput!) {
+  userCreate(input: $input) {
+    id
+    username
+    lastname
+    password
+    role
+    followsclub
+    firstname
+    email
   }
+}
 `;
 
 export const UPDATE_USER = gql`
