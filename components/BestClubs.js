@@ -9,6 +9,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { FaStar } from "react-icons/fa";
 import { MdOutlineKeyboardArrowLeft, MdOutlineNavigateNext } from "react-icons/md";
 import { getObjectActions } from "../apollo/actions";
+import { useState } from 'react';
 
 const BestClubs = () => {
   return (
@@ -38,34 +39,33 @@ const BestClubs = () => {
             },
           }}
         >
-          <SwiperSlide>
+          {
+            Object.values(dataClub).map((item) => (item.map((club) => 
+              club.rate >= 4 && (
+             <SwiperSlide>
             <div className="testimonial__item">
               <p className="user__description">
-                "Lorem ipsum dolor sit amet consectetur adipisicing elit.
-             
+                {club.description}
               </p>
               <div className="user">
                 <div className="user__image">
                   <img
                     className="img-fluid"
-                    src="images/user1.jpg"
+                    src = {club.clubImage}
                     alt="user 01"
                   />
                 </div>
                 <div className="user__info">
-                  <h5 className="user__info--name">Mark Tony</h5>
-                  <p className="user__info--title">Software Developer</p>
+                  <h5 className="user__info--name">{club.clubname}</h5>
+                  <p className="user__info--title">{club.university.universityName}</p>
                 </div>
               </div>
-              <div className="user__rating">
-                <FaStar />
-                <FaStar />
-                <FaStar />
-                <FaStar />
-                <FaStar />
-              </div>
+              <div className="user__rating">{renderStarIcons(club.rate)}</div>              
             </div>
           </SwiperSlide>
+          )
+          )))
+        }
         </Swiper>
         <div className="prev">
           <MdOutlineKeyboardArrowLeft />
