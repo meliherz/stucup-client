@@ -11,6 +11,7 @@ query Clubs {
     description
     clubname
     clubImage
+    rate
   }
 }
 `;
