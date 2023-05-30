@@ -8,7 +8,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { FaStar } from "react-icons/fa";
 import { MdOutlineKeyboardArrowLeft, MdOutlineNavigateNext } from "react-icons/md";
 
-const Testimonial = () => {
+const BestClubs = () => {
   return (
     <div className="testimonial section-padding">
       <div className="container position-relative">
@@ -76,4 +76,4 @@ const Testimonial = () => {
   );
 };
 
-export default Testimonial;
+export default BestClubs;

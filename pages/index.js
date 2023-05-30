@@ -3,9 +3,7 @@ import Hero from "../components/hero";
 import Layout from "../components/global/layout";
 import UpcomingEvents from "../components/upcoming-events";
 import HowItWorks from "../components/how-it-works";
-import FeaturedEvents from "../components/featured-events";
-import Testimonial from "../components/testimonial";
-import RecentBlog from "../components/recent-blog";
+import BestClubs from "../components/BestClubs";
 import { getObjectActions } from "../apollo/actions";
 import { useState, useEffect } from 'react';
 
@@ -18,10 +16,8 @@ export default function Home() {
     <Layout title="Stucup">
       <Hero />
       <UpcomingEvents />
+      <BestClubs />
       <HowItWorks />
-      {/* <FeaturedEvents events={eventsData} /> */}
-      <Testimonial />
-      {/* <RecentBlog blogs={blogsData} /> */}
     </Layout>
   );
 }
