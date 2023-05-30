@@ -36,3 +36,18 @@ export const CREATE_USER = gql`
     }
   }
 `;
+
+export const UPDATE_USER = gql`
+mutation Mutation($input: UpdateUserInput!) {
+  userUpdate(input: $input) {
+    id
+    lastname
+    password
+    role
+    username
+    followsclub
+    firstname
+    email
+  }
+}
+`;
