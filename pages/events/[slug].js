@@ -45,7 +45,7 @@ const EventSinglePage = ({ }) => {
                     src={eventData?.event?.eventImage}
                     alt={eventData?.event?.eventname}
                   />
-                  <h3 className="pt-2 mb-2"><label>Etkinlik Hakkında</label><br/><hr/><h4>{eventData?.event?.description}</h4></h3>
+                  <h3 className="pt-2 mb-2"><label>Etkinlik Hakkında</label><br /><hr /><h4>{eventData?.event?.description}</h4></h3>
                   <div className="singlePage__event-description" />
                 </div>
                 <div className="col-lg-4">
@@ -88,7 +88,9 @@ const EventSinglePage = ({ }) => {
                           <h5>{eventData?.event?.capacity} kişilik kontenjan vardır.</h5>
                         </div>
                       </div>
-                      <RegisterforEvent />
+                      <div className="d-flex align-items-center gap-4 mb-1 mb-lg-2">
+                        <RegisterforEvent />
+                      </div>
                     </div>
                   </div>
                 </div>

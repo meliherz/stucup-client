@@ -22,7 +22,7 @@ function RegisterforEvent() {
 
             <Modal show={show} onHide={handleClose}>
                 <Modal.Header closeButton>
-                    <Modal.Title>Unutma! Etkinlike Sen Yoksan Eksiğiz</Modal.Title>
+                    <Modal.Title>Unutma! Etkinlike Sen Yoksan Eksiğiz.</Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
                     <Form>
@@ -30,7 +30,7 @@ function RegisterforEvent() {
                             className="mb-3"
                             controlId="name"
                         >
-                            <Form.Label>İsim / Soy İsim</Form.Label>
+                            <Form.Label>İsim / Soyisim</Form.Label>
                             <Form.Control type='text' rows={3} />
                         </Form.Group>
 
@@ -45,7 +45,7 @@ function RegisterforEvent() {
 
                         <Form.Group onChange={(e) => handleOnChange(e.target.value, "email")}
                         className="mb-3" controlId="exampleForm.ControlInput1">
-                            <Form.Label>Email address</Form.Label>
+                            <Form.Label>E-mail</Form.Label>
                             <Form.Control
                                 type="email"
                                 autoFocus
@@ -55,10 +55,10 @@ function RegisterforEvent() {
                 </Modal.Body>
                 <Modal.Footer>
                     <Button variant="secondary" onClick={handleClose}>
-                        Close
+                        Kapat
                     </Button>
                     <Button variant="primary" onClick={handleClose}>
-                        Save Changes
+                        Kayıt Ol
                     </Button>
                 </Modal.Footer>
             </Modal>
