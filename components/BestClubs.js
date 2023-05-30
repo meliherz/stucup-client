@@ -34,7 +34,7 @@ const BestClubs = () => {
   }
   
   return (
-    <div className="testimonial section-padding">
+    <div className="testimonial section-padding" id="testimonial">
       <div className="container position-relative">
         <div className="row">
             <div className="col-10 col-md-8">
