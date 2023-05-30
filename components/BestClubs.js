@@ -11,7 +11,7 @@ import { MdOutlineKeyboardArrowLeft, MdOutlineNavigateNext } from "react-icons/m
 import { getObjectActions } from "../apollo/actions";
 import { useState } from 'react';
 
-const Testimonial = () => {
+const BestClubs = () => {
 
   const [getObjectsEvents] = getObjectActions["useGetClubs"]();
   const [dataClub, setDataClub] = useState([]);
@@ -27,15 +27,12 @@ const Testimonial = () => {
 
   function renderStarIcons(rate) {
     const starIcons = [];
-    console.log(rate);
     for (let i = 0; i < rate; i++) {
      starIcons.push(<FaStar key={i} />);
     }
     return starIcons;
   }
   
-  Object.values(dataClub).map((item) => (item?.map((club) => console.log(club.rate))));  
-
   return (
     <div className="testimonial section-padding">
       <div className="container position-relative">
@@ -63,7 +60,7 @@ const Testimonial = () => {
             },
           }}
         >
-          {
+          { (!dataClub) ? (<div>Loading...</div>) : (
             Object.values(dataClub).map((item) => (item.map((club) => 
               club.rate >= 4 && (
              <SwiperSlide>
@@ -88,7 +85,7 @@ const Testimonial = () => {
             </div>
           </SwiperSlide>
           )
-          )))
+          ))))
         }
         </Swiper>
         <div className="prev">
@@ -102,4 +99,4 @@ const Testimonial = () => {
   );
 };
 
-export default Testimonial;
+export default BestClubs;

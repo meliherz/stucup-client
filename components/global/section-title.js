@@ -1,8 +1,8 @@
 import React from "react";
 
-const SectionTitle = ({ title }) => {
+const SectionTitle = ({ title, position }) => {
   return (
-    <div className={`section-title`}>
+    <div className={`section-title`+ position}>
       <h1>{title}</h1>
     </div>
   );
@@ -11,5 +11,6 @@ const SectionTitle = ({ title }) => {
 export default SectionTitle;
 
 SectionTitle.defaultProps = {
-  title: "Section Title"
+  title: "Section Title",
+  position: ""
 };
