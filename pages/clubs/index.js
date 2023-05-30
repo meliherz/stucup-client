@@ -15,12 +15,7 @@ const Clubs = () => {
   const [unisData, setUnisData] = useState([]);
   const [getClubByUniversityId] = getObjectActions["useGetClubByUniversityId"]();
 
-  useEffect(() => {
-    const getClubs = async () => {
-      const { data } = await getObjects();
-      setClubsData(data)
-    };
-    
+  useEffect(() => { 
     const getUniversities = async () => {
       const { data } = await getObjectsUniversities();
       setUnisData(data.universities);
