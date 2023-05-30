@@ -73,3 +73,26 @@ mutation ClubCreate($input: CreateClubInput!) {
   }
 }
 `;
+
+export const UPDATE_CLUB = gql`
+mutation Mutation($input: UpdateClubInput!) {
+  clubUpdate(input: $input) {
+    id
+    email
+    events {
+      id
+      eventname
+    }
+    members
+    rate
+    university {
+      id
+      universityName
+    }
+    description
+    clubname
+    clubImage
+    admin
+  }
+}
+`;
