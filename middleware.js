@@ -1,5 +1,4 @@
 import { NextResponse } from "next/server";
-import { verifyJwtToken } from "./libs/auth";
 
 export function middleware(req) {
     

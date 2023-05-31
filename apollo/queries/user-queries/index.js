@@ -69,3 +69,21 @@ mutation Mutation($data: SignInUserInput!) {
     }
   }
 }`;
+
+export const IS_ME = gql`
+query Isme {
+  isme {
+    isMe
+    user {
+      id
+      username
+    }
+  }
+}
+`;
+
+export const SIGN_OUT = gql`
+    mutation SignOutUser{
+      signOutUser
+    }   
+`;

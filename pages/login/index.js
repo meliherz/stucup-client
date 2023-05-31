@@ -1,21 +1,13 @@
+//Funcs
 import { useState } from 'react';
-import {
-    Card,
-    Spacer,
-    Button,
-    Text,
-    Input,
-    Row,
-    Checkbox,
-    Container,
-} from '@nextui-org/react';
-import { Mail } from '../../components/global/Mail';
-import { Password } from '../../components/global/Password';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { useSignInUser } from '../../apollo/actions/user-actions';
 import { useLoginPath } from '../../libs/auth/useAuth';
-
+//CSS
+import { Card, Spacer, Button, Text, Input, Row, Checkbox, Container} from '@nextui-org/react';
+import { Mail } from '../../components/global/Mail';
+import { Password } from '../../components/global/Password';
 
 export default function Login() {
 
@@ -46,10 +38,10 @@ export default function Login() {
               }
 
               if (resp?.data?.signIn?.message) {
-                // empty
+                console.log("12")
               }
         } catch (err) {
-            // empty
+            console.log(err)
         }
     };
 
