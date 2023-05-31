@@ -12,7 +12,7 @@ export default function AuthProvider({ children }) {
 
   const router = useRouter();
 
-  const { data, error } = useQuery(IS_ME); //Eklenecek sorgulara
+  const { data, error } = useQuery(IS_ME);
   //let [signOut] = useMutation(SIGN_OUT); //Eklenecek mutationlar
   const [currentPath, setCurrentPath] = useState('/');
   const [userRole, setUserRole] = useState({});
@@ -21,21 +21,16 @@ export default function AuthProvider({ children }) {
     setUserState(data?.isme?.user);
     const getUser = async () => {
       if ((error || data) && router.pathname !== '/login') {
-        setState(true); }
-      // } else {
-      //   const { data: newData } = await refetch();
-      //   if (newData?.userRole) {
-      //     setUserRole(newData.userRole);
-      //   }
-      //   setState(true);
-      // }
+        setState(true); 
+        setCurrentPath(router.pathname);
+      }
     };
 
     getUser();
   }, [data, error, router]);
 
   return (state || router.pathname === '/login') ? (
-    <AuthContext.Provider value={ { currentPath, user: true, userRole } }>{children}</AuthContext.Provider>
+    <AuthContext.Provider value={ { currentPath, user: userState, userRole } }>{children}</AuthContext.Provider>
   ) : <div>Loading...</div>;
 }
 

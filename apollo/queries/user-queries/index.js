@@ -37,8 +37,6 @@ mutation Mutation($input: CreateUserInput!) {
     username
     lastname
     password
-    role
-    followsclub
     firstname
     email
   }
