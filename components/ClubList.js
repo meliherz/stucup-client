@@ -30,7 +30,7 @@ function ClubList({clubs}) {
                                         </Link>
                                     </h2>
                                     <p className="m-0">
-                                        {club?.description?.slice(0, 95)}..
+                                        {club?.description?.slice(0, 80)}..
                                     </p>
                                 </div>
                                 <div className="blog__single-post__meta">
