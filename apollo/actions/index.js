@@ -1,4 +1,4 @@
-import { useGetUsers, useCreateUser, useUpdateUser, useGetUserById } from "./user-actions";
+import { useGetUsers, useCreateUser, useUpdateUser, useGetUserById, useSignInUser } from "./user-actions";
 import { useGetClubs, useGetClubByUniversityId, useCreateClub, useGetClubById, useUpdateClub } from "./club-actions";
 import { useGetEvents, useGetEventById, useCreateEvent } from "./event-actions";
 import { useGetUniversities, useCreateUniversity } from "./university-actions";
@@ -8,6 +8,7 @@ export const getObjectActions = {
     useGetUserById,
     useCreateUser,
     useUpdateUser,
+    useSignInUser,
     useGetClubs,
     useGetClubById,
     useGetClubByUniversityId,

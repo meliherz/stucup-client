@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import {
     Card,
     Spacer,
@@ -11,8 +12,47 @@ import {
 import { Mail } from '../../components/global/Mail';
 import { Password } from '../../components/global/Password';
 import Link from 'next/link';
+import { useRouter } from 'next/router';
+import { useSignInUser } from '../../apollo/actions/user-actions';
+import { useLoginPath } from '../../libs/auth/useAuth';
+
 
 export default function Login() {
+
+    const router = useRouter();
+
+    const contextState = useLoginPath();
+
+    const [signInUser] = useSignInUser();
+
+    const [username, setUsername] = useState('');
+    const [password, setPassword] = useState('');
+
+    const handleOnChangeMail = (e) => {
+        setUsername(e.target.value);
+    };
+    const handleOnChangePassword = (e) => {
+        setPassword(e.target.value);
+    };
+
+    const handleLogin = async () => {
+        try {
+            const resp = await signInUser({ 
+                variables: { username, password },
+              });
+
+              if (resp?.data?.signIn?.token) {
+                router.push(contextState?.currentPath);
+              }
+
+              if (resp?.data?.signIn?.message) {
+                // empty
+              }
+        } catch (err) {
+            // empty
+        }
+    };
+
     return (
         <div style={{ backgroundColor: '#f5f5f5' }}>
             <Container
@@ -42,6 +82,7 @@ export default function Login() {
                         placeholder="Username"
                         aria-label="Username"
                         contentLeft={<Mail fill="currentColor" />}
+                        onChange={handleOnChangeMail}
                     />
                     <Spacer y={1} />
                     <Input
@@ -54,6 +95,7 @@ export default function Login() {
                         placeholder="Password"
                         aria-label="Password"
                         contentLeft={<Password fill="currentColor" />}
+                        onChange={handleOnChangePassword}
                         css={{ mb: '6px' }}
                     />
                     <Row justify="space-between">
@@ -67,7 +109,7 @@ export default function Login() {
                         </Link>
                     </Row>
                     <Spacer y={1} />
-                    <Button onClick={() => { console.log('clicked') }}>Giriş</Button>
+                    <Button onClick={handleLogin}>Giriş</Button>
                 </Card>
             </Container>
         </div>
