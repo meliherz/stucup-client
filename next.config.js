@@ -10,11 +10,11 @@ module.exports = {
     return [
       {
         source: '/clubs/:slug',
-        destination: '/university-page',
+        destination: '/clubs/:slug',
       },
       {
-        source: '/university/:slug',
-        destination: '/university-page',
+        source: '/events/:slug/:slug',
+        destination: '/event-registration',
       },
     ];
   },

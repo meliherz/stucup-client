@@ -5,7 +5,7 @@ const HowItWorks = () => {
     return (
         <div className="how-works section-padding">
                 <div className="container">
-                    <SectionTitle title="Etkinliklere Nasıl Katılırım" />
+                    <SectionTitle title="Etkinliklere Nasıl Katılırım ?" />
                     <div className="row align-items-center justify-content-around">
                         <div className="col-md-6 col-lg-4 mb-4 mb-lg-0 text-center">
                            <div className="how-works__item">

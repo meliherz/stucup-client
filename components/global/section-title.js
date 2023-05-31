@@ -2,7 +2,7 @@ import React from "react";
 
 const SectionTitle = ({ title, position }) => {
   return (
-    <div className={`section-title ${position}`}>
+    <div className={`section-title`+ position}>
       <h1>{title}</h1>
     </div>
   );

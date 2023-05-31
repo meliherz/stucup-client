@@ -32,12 +32,12 @@ const Hero = () => {
                 </button>
                 <button
                   onClick={() => {
-                    const myId = document.getElementById("featured-events");
+                    const myId = document.getElementById("testimonial");
                     myId.scrollIntoView({ behavior: "smooth" });
                   }}
                 >
                   {" "}
-                  <FaRegLightbulb /> Öne Çıkan Etkinlikler
+                  <FaRegLightbulb /> Ayın En İyi Kulüpleri
                 </button>
                 <Link href="/events">
                   <button>

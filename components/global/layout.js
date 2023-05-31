@@ -18,7 +18,7 @@ export default function Layout({ title, keywords, description, children }) {
 }
 
 Layout.defaultProps = {
-  title: "Huddle - next js app",
-  description: "Event booking & Ticketing NEXT.JS, Strapi app",
+  title: "Stucup",
+  description: "Event App",
   keywords: "event",
 };

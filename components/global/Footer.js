@@ -12,14 +12,10 @@ const Footer = () => {
             <div className="row">
               <div className="footer__top__content">
                 <h2>
-                  Kafanıza takılan bir yer mi var? <br />
-                  Hemen bize ulaşın.
-                </h2>
-                <h2 className="display-4">
-                  <Link href="tel:610383766284">+02125647887</Link>
+                  Kafanıza takılan bir yer mi var ?
                 </h2>
                 <Link href="/contact" className="smooth button button__primary">
-                  <span>Bize Ulaşın</span>
+                  <span>Bize Ulaşın !</span>
                 </Link>
               </div>
             </div>
