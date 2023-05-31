@@ -35,18 +35,13 @@ import { getObjectActions } from '../../apollo/actions/index';
       console.error('Kayıt hatası:', error);
     }
   };
-
-
+  
    const handleInputChange = (e) => {
       const { name, value } = e.target;
       setRegisterData((prevData) => ({
         ...prevData,
         [name]: value
       }));
-    };
-
-    const handleSubmit = () => {
-    createUser();
     };
     
     return (
@@ -127,6 +122,7 @@ import { getObjectActions } from '../../apollo/actions/index';
               clearable
               bordered
               fullWidth
+              type='password'
               color="primary"
               size="lg"
               placeholder="Password"
@@ -137,7 +133,7 @@ import { getObjectActions } from '../../apollo/actions/index';
               css={{ mb: '6px' }}
             />
             <Spacer y={1} />
-            <Button onClick={handleSubmit} >Kayıt Ol</Button>
+            <Button onClick={createUser} >Kayıt Ol</Button>
           </Card>
         </Container>
       </div>

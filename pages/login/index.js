@@ -79,6 +79,7 @@ export default function Login() {
                     <Spacer y={1} />
                     <Input
                         id='password'
+                        type='password'
                         clearable
                         bordered
                         fullWidth
