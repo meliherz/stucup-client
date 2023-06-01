@@ -89,7 +89,7 @@ const EventSinglePage = ({ }) => {
                         </div>
                       </div>
                       <div className="d-flex align-items-center gap-4 mb-1 mb-lg-2">
-                        <RegisterforEvent />
+                        <RegisterforEvent eventId = {slug}/>
                       </div>
                     </div>
                   </div>

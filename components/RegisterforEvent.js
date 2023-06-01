@@ -2,17 +2,32 @@ import React, { useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import Modal from 'react-bootstrap/Modal';
+import { getObjectActions } from '../apollo/actions';
 
-function RegisterforEvent() {
+function RegisterforEvent({eventId}) {
     const [show, setShow] = useState(false);
     const [valueInput, setValueInput] = useState([]);
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
 
+    const[updateEvent] = getObjectActions["useUpdateEvent"]();
+    
     const handleOnChange = (value,key) => {
         setValueInput((prevValue) => ({ ...prevValue, [key]: value }));
-        console.log(valueInput);
     }
+
+    const updateParticipants = async () => {
+        console.log("eventId",eventId)
+        console.log("valueInput",valueInput)
+        const { data } = await updateEvent({
+            variables: {
+                input: {
+                    id: eventId,
+                    participants: valueInput
+                }
+            }
+        })
+    };
 
     return (
         <>
@@ -57,7 +72,7 @@ function RegisterforEvent() {
                     <Button variant="secondary" onClick={handleClose}>
                         Kapat
                     </Button>
-                    <Button variant="primary" onClick={handleClose}>
+                    <Button variant="primary" onClick={updateParticipants}>
                         Kayıt Ol
                     </Button>
                 </Modal.Footer>
