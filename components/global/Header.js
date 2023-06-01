@@ -62,7 +62,7 @@ const Header = () => {
           <ul className="navbar-nav navbar__right d-none d-lg-flex align-items-center gap-2">
             <li className="nav-item">
               <Link className="nav-link" href="/profile">
-                Profilim
+                Hesabım
               </Link>
             </li>
           </ul>

@@ -13,6 +13,7 @@ export default function AuthProvider({ children }) {
   const router = useRouter();
 
   const { data, error } = useQuery(IS_ME);
+  
   //let [signOut] = useMutation(SIGN_OUT); //Eklenecek mutationlar
   const [currentPath, setCurrentPath] = useState('/');
   const [userRole, setUserRole] = useState({});

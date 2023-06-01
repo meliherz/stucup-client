@@ -30,8 +30,9 @@ export default function Login() {
     const handleLogin = async () => {
         try {
             const resp = await signInUser({ 
-                variables: { username, password },
+                variables: { input: username, password },
               });
+              console.log(resp)
 
               if (resp?.data?.signIn?.token) {
                 router.push(contextState?.currentPath);
