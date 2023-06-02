@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, use } from "react";
 import { Tab, Tabs } from "react-bootstrap";
 import Layout from "../../components/global/layout";
 import {
@@ -11,6 +11,7 @@ import {
 import Link from "next/link";
 import InnerPageLayout from "../../components/inner-page-layout";
 import { getObjectActions } from "../../apollo/actions/index"
+import { useUser } from "../../libs/auth/useAuth";
 
 const EventPage = () => {
   const [key, setKey] = useState("AllEvents");
@@ -18,38 +19,32 @@ const EventPage = () => {
   const [postsPerPage] = useState(6);
   const [getObjects] = getObjectActions["useGetEvents"]();
   const [eventData, setEventData] = useState([]);
-
-
+  const { user } = useUser();
   const [getUser] = getObjectActions["useGetUserById"]();
   const [getEventByClubId] = getObjectActions["useGetClubById"]();  
 
-  const [userById, setUserById] = useState();
+  const [clubById, setClubById] = useState();
   const [myEvent, setMyEvent] = useState([]);
   
   useEffect(() => {
     const getUserById = async () => {
-      const userId = "640048cfe1433d095e2f0610";
+      const userId = user.id;
       const { data } = await getUser({
         variables: { userId }
       });
-      setUserById(data);
+      const arrayFollowsClub =  data?.user?.followsclub
+      arrayFollowsClub.map((item) => getEventByClub(item))
+     
     };
-
     getUserById();
   }, []);
 
-
-  useEffect(()=>{
-    const getEventByClub = async () => {
-      const clubToUniversityId = "647055ebbbd70a110d41dadb"
+    const getEventByClub = async (clubToUniversityId) => {
       const { data } = await getEventByClubId({
         variables: { clubId: clubToUniversityId },
       });
-      setMyEvent({...data.club.events})
+      setMyEvent((prevData) => [...prevData, data?.club?.events]);
     };
-    getEventByClub();
-  }, []);
-
 
   useEffect(() => {
     const getUsers = async () => {
@@ -58,15 +53,6 @@ const EventPage = () => {
     };
     getUsers();
   }, [getObjects]);
-
-  // Object.values(clubs).map((item) => (
-  //   item.map((club) => (
-
-
-    Object.values(myEvent).map((event) => {
-      console.log("aaa",event);
-    })
-  ;
 
   return (
     <Layout title="Event Page">
@@ -128,7 +114,8 @@ const EventPage = () => {
                 ))))}
               </Tab>
               <Tab eventKey="followsClubs" title="Takip Ettiğim Kulüp Etkinlikleri">
-                {Object.values(myEvent).map((evt) => 
+                {Object.values(myEvent).map((item) => (
+                  item.map((evt) => (
                   <div className="row">
                     <div key={evt.id} className="col-md-6 col-lg-4 mb-4">
                       <div className="upcoming-events__item">
@@ -145,7 +132,6 @@ const EventPage = () => {
                         </div>
                         <div className="upcoming-events__item__info">
                           <div className="title">
-                          {console.log("id",evt?.id)}
                             <h3>
                               <Link href={`/events/${evt?.id}`}>{evt?.eventname}</Link>
                             </h3>
@@ -173,6 +159,8 @@ const EventPage = () => {
                       </div>
                     </div>
                   </div>
+                  ))
+                )
                 )}
               </Tab>
              
