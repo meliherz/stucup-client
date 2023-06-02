@@ -37,15 +37,17 @@ query Event($eventId: ID!) {
 `;
 
 export const CREATE_EVENT = gql`
-mutation EventCreate($input: CreateEventInput!) {
+mutation Mutation($input: CreateEventInput!) {
   eventCreate(input: $input) {
     id
     eventname
-    clubId
     description
-    organizer
     eventDate
+    eventTime
     location
+    organizer
+    category
+    capacity
     eventImage
   }
 }
