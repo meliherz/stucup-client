@@ -5,7 +5,7 @@ import { useRouter } from 'next/router';
 import { useSignInUser } from '../../apollo/actions/user-actions';
 import { useLoginPath } from '../../libs/auth/useAuth';
 //CSS
-import { Card, Spacer, Button, Text, Input, Row, Checkbox, Container} from '@nextui-org/react';
+import { Card, Spacer, Button, Text, Input, Row, Checkbox, Container } from '@nextui-org/react';
 import { Mail } from '../../components/global/Mail';
 import { Password } from '../../components/global/Password';
 
@@ -29,20 +29,21 @@ export default function Login() {
 
     const handleLogin = async () => {
         try {
-            const resp = await signInUser({ 
-                variables: { input: username, password },
-              });
-              console.log(resp)
+            const resp = await signInUser({
+                variables: {
+                    data: {
+                        username: username,
+                        password: password,
+                    }
+                }
+            });
 
-              if (resp?.data?.signIn?.token) {
+            if (resp?.data?.signIn?.token) {
                 router.push(contextState?.currentPath);
-              }
+            }
 
-              if (resp?.data?.signIn?.message) {
-                console.log("12")
-              }
         } catch (err) {
-            console.log(err)
+            console.log("Giriş yapılamadı!!!", err)
         }
     };
 
@@ -66,7 +67,7 @@ export default function Login() {
                         STUCUP Login
                     </Text>
                     <Input
-                        id='username' 
+                        id='username'
                         clearable
                         bordered
                         fullWidth
