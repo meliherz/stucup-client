@@ -5,18 +5,42 @@ import Layout from "../../components/global/layout";
 import { FaUserCircle } from "react-icons/fa";
 import { ImLocation2, ImTicket, ImCalendar, ImPriceTags, ImClock } from "react-icons/im";
 import InnerPageLayout from "../../components/inner-page-layout";
-import Link from "next/link";
-import RegisterforEvent from "../../components/RegisterforEvent";
-import SectionTitle from "../../components/global/section-title";
-import md from 'markdown-it';
+import { useUser } from "../../libs/auth/useAuth";
+import { Button } from "react-bootstrap";
 
 const EventSinglePage = ({ }) => {
 
   const router = useRouter();
-
+  const { user } = useUser();
+  
   const { slug } = router.query;
 
   const [getObjects] = getObjectActions["useGetEventById"]();
+  const [updateEvent] = getObjectActions["useUpdateEvent"]();
+
+  const [participants, setParticipants] = useState([]);
+
+  const updateEventToParticipants = async (userId) => {
+    console.log("newClubs",userId)
+    console.log("slug",slug)
+    const { data } = await updateEvent({
+        variables: {
+            input: {       
+              participants: userId,
+              id: slug,
+            }
+        }
+    })
+};
+
+const handleChange = () => {
+  setParticipants((prevClubs) => {
+      const newFollowedClubs = [...prevClubs, user.id];
+      updateEventToParticipants(newFollowedClubs);
+      return newFollowedClubs;
+  });
+}
+
   const [eventData, setEventData] = useState([]);
 
   useEffect(() => {
@@ -89,7 +113,8 @@ const EventSinglePage = ({ }) => {
                         </div>
                       </div>
                       <div className="d-flex align-items-center gap-4 mb-1 mb-lg-2">
-                        <RegisterforEvent />
+                        {/* <RegisterforEvent eventId = {slug}/> */}
+                        <Button onClick={() => handleChange()}>Kayıt ol</Button>
                       </div>
                     </div>
                   </div>

@@ -19,10 +19,9 @@ query Query($userId: ID!) {
     ... on User {
       id
       followsclub
-      lastname
-      role
       username
       firstname
+      lastname
       email
     }
   }

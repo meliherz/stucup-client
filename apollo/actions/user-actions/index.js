@@ -3,7 +3,7 @@ import { GET_USERS, GET_USER_BY_ID, CREATE_USER, UPDATE_USER, SIGN_IN_USER } fro
 
 export const useGetUsers = () => useLazyQuery(GET_USERS);
 
-export const useGetUserById = () => useQuery(GET_USER_BY_ID);
+export const useGetUserById = () => useLazyQuery(GET_USER_BY_ID);
 
 export const useCreateUser = () => useMutation(CREATE_USER);
 
