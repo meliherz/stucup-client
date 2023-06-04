@@ -7,39 +7,44 @@ import { ImLocation2, ImTicket, ImCalendar, ImPriceTags, ImClock } from "react-i
 import InnerPageLayout from "../../components/inner-page-layout";
 import { useUser } from "../../libs/auth/useAuth";
 import { Button } from "react-bootstrap";
+import RegisterforEvent from "../../components/RegisterforEvent";
+import Modal from 'react-bootstrap/Modal';
+import QrCode from "../../components/QrCode";
 
 const EventSinglePage = ({ }) => {
 
   const router = useRouter();
   const { user } = useUser();
-  
+
   const { slug } = router.query;
 
   const [getObjects] = getObjectActions["useGetEventById"]();
   const [updateEvent] = getObjectActions["useUpdateEvent"]();
-
+  const [checkRegister, setCheckRegister] = useState(true)
+  const [show, setShow] = useState(false);
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
   const [participants, setParticipants] = useState([]);
+  const [checkQr, setCheckQr] = useState(true)
 
   const updateEventToParticipants = async (userId) => {
-    console.log("newClubs",userId)
-    console.log("slug",slug)
     const { data } = await updateEvent({
-        variables: {
-            input: {       
-              participants: userId,
-              id: slug,
-            }
+      variables: {
+        input: {
+          participants: userId,
+          id: slug,
         }
+      }
     })
-};
+  };
 
-const handleChange = () => {
-  setParticipants((prevClubs) => {
+  const handleChange = () => {
+    setParticipants((prevClubs) => {
       const newFollowedClubs = [...prevClubs, user.id];
       updateEventToParticipants(newFollowedClubs);
       return newFollowedClubs;
-  });
-}
+    });
+  }
 
   const [eventData, setEventData] = useState([]);
 
@@ -113,8 +118,28 @@ const handleChange = () => {
                         </div>
                       </div>
                       <div className="d-flex align-items-center gap-4 mb-1 mb-lg-2">
-                        {/* <RegisterforEvent eventId = {slug}/> */}
-                        <Button onClick={() => handleChange()}>Kayıt ol</Button>
+                        <Button onClick={() => { handleChange(), handleShow()}}>Kayıt ol</Button>
+
+                        {
+                          (checkQr) ? 
+                          <Modal show={show} onHide={handleClose}>
+                          <Modal.Header closeButton>
+                            <Modal.Title>Etkinliğe Giriş İşin QrCode.</Modal.Title>
+                          </Modal.Header>
+                          <Modal.Body>
+                            <QrCode></QrCode>
+                          </Modal.Body>
+                          <Modal.Footer>
+                            <Button variant="secondary" onClick={handleClose}>
+                              Kapat
+                            </Button>
+                          </Modal.Footer>
+                        </Modal> : 
+                        setCheckQr(false)
+                        }
+                        
+
+
                       </div>
                     </div>
                   </div>
