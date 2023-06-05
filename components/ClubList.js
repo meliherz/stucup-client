@@ -7,10 +7,24 @@ import { useUser } from "../libs/auth/useAuth";
 
 function ClubList({ clubs }) {
 
-    const { user } = useUser(); 
+    const { user } = useUser();
 
     const [followedClubs, setFollowedClubs] = useState([]);
     const [updateUser] = getObjectActions["useUpdateUser"]();
+    const [getUser] = getObjectActions["useGetUserById"]();
+    const [oldFollowed, setOldFollowed] = useState([])
+
+
+    useEffect(() => {
+        const getUserById = async () => {
+            const userId = user.id;
+            const { data } = await getUser({
+                variables: { userId }
+            });
+            setOldFollowed(data.user.followsclub.map((item) => item))
+        };
+        getUserById();
+    }, []);
 
     const updateUserToFollow = async (newClubs) => {
         const { data } = await updateUser({
@@ -28,9 +42,14 @@ function ClubList({ clubs }) {
         setFollowedClubs((prevClubs) => {
             const newFollowedClubs = [...prevClubs, clubId];
             updateUserToFollow(newFollowedClubs);
+            setOldFollowed(newFollowedClubs); 
             return newFollowedClubs;
         });
     }
+
+    const isFollowed = (clubId) => {
+        return oldFollowed.includes(clubId);
+    };
 
     return (
         <div className="row" style={{ width: "100%", marginTop: "20px", marginBottom: "20px" }}>
@@ -63,7 +82,9 @@ function ClubList({ clubs }) {
                                 </div>
                             </div>
                             <div className="blog__single-post__content" style={{ marginTop: "20px", textAlign: "center" }} id={club.id}>
-                                <Button onClick={() => handleChange(club.id)}>Takip Et!</Button>
+                                <Button onClick={() => handleChange(club.id)} variant={isFollowed(club.id) ? "warning" : "primary"}>
+                                    {isFollowed(club.id) ?  "Takip Ediliyor" : "Takip Et!"}
+                                </Button>                          
                             </div>
                         </article>
                     </div>
