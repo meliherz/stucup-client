@@ -68,7 +68,7 @@ const EventPage = () => {
               <Tab eventKey="AllEvents" title="Bütün Etkinlikler">
                 {Object.values(eventData).map((evt) => 
                 (evt.map((evt)=>(
-                  <div className="row">
+                  <div className="row" style={{justifyContent:"center"}}>
                     <div key={evt.id} className="col-md-6 col-lg-4 mb-4">
                       <div className="upcoming-events__item">
                         <div className="image">
@@ -116,7 +116,7 @@ const EventPage = () => {
               <Tab eventKey="followsClubs" title="Takip Ettiğim Kulüp Etkinlikleri">
                 {Object.values(myEvent).map((item) => (
                   item.map((evt) => (
-                  <div className="row">
+                  <div className="row" style={{justifyContent:"center"}}>
                     <div key={evt.id} className="col-md-6 col-lg-4 mb-4">
                       <div className="upcoming-events__item">
                         <div className="image">

@@ -37,7 +37,6 @@ function ClubList({ clubs }) {
         })
     };
 
-
     const handleChange = (clubId) => {
         setFollowedClubs((prevClubs) => {
             const newFollowedClubs = [...prevClubs, clubId];
@@ -64,7 +63,7 @@ function ClubList({ clubs }) {
                             </div>
                             <div className="blog__single-post__body">
                                 <div className="blog__single-post__content" style={{ textAlign: "center" }}>
-                                    <h2 className="fs-4">
+                                    <h2 className="fs-4" style={{ minHeight:"90px"}}>
                                         <Link href={`/clubs/${club?.id}`}>
                                             {club?.clubname}
                                         </Link>
