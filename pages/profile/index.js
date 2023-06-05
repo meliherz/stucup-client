@@ -1,6 +1,8 @@
 import React from 'react'
 import Layout from '../../components/global/layout'
 import ClubSettings from '../../components/profileSettings/clubSettings'
+import UserSettings from '../../components/profileSettings/generalSettings'
+import SecuritySettings from '../../components/profileSettings/securitySettings'
 import Col from 'react-bootstrap/Col';
 import Nav from 'react-bootstrap/Nav';
 import Row from 'react-bootstrap/Row';
@@ -31,11 +33,7 @@ function profile() {
               <Tab.Content>
                 <Tab.Pane eventKey="first">
                   <div>
-                    Username değişikliği <br />
-                    Ad Soyad değişikliği <br />
-                    email değişikliği <br />
-                    Telefon numarası değişiklği <br />
-                    Okul değişikliği <br />
+                    <UserSettings />
                   </div>
                 </Tab.Pane>
                 <Tab.Pane eventKey="second">
@@ -45,8 +43,7 @@ function profile() {
                 </Tab.Pane>
                 <Tab.Pane eventKey="third">
                   <div>
-                    Şifre değişikliği <br />
-                    Hesabın silinmesi <br />
+                    <SecuritySettings />
                   </div>
                 </Tab.Pane>
               </Tab.Content>

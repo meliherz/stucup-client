@@ -23,8 +23,6 @@ function ClubList({ clubs }) {
         })
     };
 
-    // add remove clubs 
-    // Set'e bak 
 
     const handleChange = (clubId) => {
         setFollowedClubs((prevClubs) => {

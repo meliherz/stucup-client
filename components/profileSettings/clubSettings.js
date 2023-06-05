@@ -27,7 +27,6 @@ function clubSettings() {
           [name]: value
         }));
       };
-      console.log(registerEvent);
     const createEvent = async () => {
         try {
             const resp = await getObjects({
@@ -42,8 +41,7 @@ function clubSettings() {
 
 return (
     <div className='d-flex flex-column justify-content-center'>
-        <h3 className='text-center'>Kulübüm</h3>
-        <hr />
+
         <h4 className='text-center'>Etkinlik Ekle</h4>
         <hr />
         <div className='text-center' style={{ justifyContent: "center", alignSelf: "center" }}>
