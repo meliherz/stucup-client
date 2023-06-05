@@ -10,13 +10,13 @@ function QrCode() {
       options={{
         type: 'image/jpeg',
         quality: 0.3,
-        level: 'M',
+        level: 'L',
         margin: 3,
         scale: 4,
         width: 200,
         color: {
-          dark: '#010599FF',
-          light: '#FFBF60FF',
+          dark: '#0000',
+          light: '#FFFF',
         },
       }}
     />
