@@ -24,9 +24,9 @@ function ClubList({ clubs }) {
             setOldFollowed(data.user.followsclub.map((item) => item))
         };
         getUserById();
-    }, []);
+    }, [oldFollowed]);
 
-    const updateUserToFollow = async (newClubs) => {
+    const updateUserToFollow = async (newClubs) => {  
         const { data } = await updateUser({
             variables: {
                 input: {
@@ -42,10 +42,10 @@ function ClubList({ clubs }) {
         setFollowedClubs((prevClubs) => {
             const newFollowedClubs = [...prevClubs, clubId];
             updateUserToFollow(newFollowedClubs);
-            setOldFollowed(newFollowedClubs); 
             return newFollowedClubs;
         });
-    }
+}
+    
 
     const isFollowed = (clubId) => {
         return oldFollowed.includes(clubId);
