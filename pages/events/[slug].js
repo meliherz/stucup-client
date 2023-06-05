@@ -118,28 +118,24 @@ const EventSinglePage = ({ }) => {
                         </div>
                       </div>
                       <div className="d-flex align-items-center gap-4 mb-1 mb-lg-2">
-                        <Button onClick={() => { handleChange(), handleShow()}}>Kayıt ol</Button>
-
+                        <Button onClick={() => { handleChange(), handleShow() }}>Kayıt ol</Button>
                         {
-                          (checkQr) ? 
-                          <Modal show={show} onHide={handleClose}>
-                          <Modal.Header closeButton>
-                            <Modal.Title>Etkinliğe Giriş İşin QrCode.</Modal.Title>
-                          </Modal.Header>
-                          <Modal.Body>
-                            <QrCode></QrCode>
-                          </Modal.Body>
-                          <Modal.Footer>
-                            <Button variant="secondary" onClick={handleClose}>
-                              Kapat
-                            </Button>
-                          </Modal.Footer>
-                        </Modal> : 
-                        setCheckQr(false)
+                          (checkQr) ?
+                            <Modal show={show} onHide={handleClose}>
+                              <Modal.Header closeButton>
+                                <Modal.Title>Etkinliğe Giriş İçin QRCode.</Modal.Title>
+                              </Modal.Header>
+                              <Modal.Body className="text-center">
+                                <QrCode></QrCode>
+                              </Modal.Body>
+                              <Modal.Footer>
+                                <Button variant="secondary" onClick={handleClose}>
+                                  Kapat
+                                </Button>
+                              </Modal.Footer>
+                            </Modal> :
+                            setCheckQr(false)
                         }
-                        
-
-
                       </div>
                     </div>
                   </div>

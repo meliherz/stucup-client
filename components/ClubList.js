@@ -15,7 +15,6 @@ function ClubList({ clubs }) {
                 input: {
                     id: "640048cfe1433d095e2f0610",
                     followsclub: newClubs,
-                    role: "follower",
                 }
             }
         })
