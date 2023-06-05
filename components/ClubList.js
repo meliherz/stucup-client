@@ -3,8 +3,11 @@ import Image from "next/image";
 import { useState, useEffect } from 'react';
 import { Button } from "react-bootstrap";
 import { getObjectActions } from "../apollo/actions";
+import { useUser } from "../libs/auth/useAuth";
 
 function ClubList({ clubs }) {
+
+    const { user } = useUser(); 
 
     const [followedClubs, setFollowedClubs] = useState([]);
     const [updateUser] = getObjectActions["useUpdateUser"]();
@@ -13,9 +16,8 @@ function ClubList({ clubs }) {
         const { data } = await updateUser({
             variables: {
                 input: {
-                    id: "640048cfe1433d095e2f0610",
+                    id: user.id,
                     followsclub: newClubs,
-                    role: "follower",
                 }
             }
         })
