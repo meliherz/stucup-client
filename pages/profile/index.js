@@ -8,6 +8,7 @@ import Nav from 'react-bootstrap/Nav';
 import Row from 'react-bootstrap/Row';
 import Tab from 'react-bootstrap/Tab';
 import InnerPageLayout from '../../components/inner-page-layout';
+import EventSettings from '../../components/profileSettings/eventSettings'
 
 function profile() {
   return (
@@ -23,6 +24,9 @@ function profile() {
                 </Nav.Item>
                 <Nav.Item>
                   <Nav.Link eventKey="second">Kulübüm</Nav.Link>
+                </Nav.Item>
+                <Nav.Item>
+                  <Nav.Link eventKey="fourth">Etkinliklerim</Nav.Link>
                 </Nav.Item>
                 <Nav.Item>
                   <Nav.Link eventKey="third">Güvenlik</Nav.Link>
@@ -44,6 +48,11 @@ function profile() {
                 <Tab.Pane eventKey="third">
                   <div>
                     <SecuritySettings />
+                  </div>
+                </Tab.Pane>
+                <Tab.Pane eventKey="fourth">
+                  <div>
+                    <EventSettings />
                   </div>
                 </Tab.Pane>
               </Tab.Content>
