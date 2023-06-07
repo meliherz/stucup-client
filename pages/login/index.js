@@ -48,7 +48,8 @@ export default function Login() {
     };
 
     return (
-        <div style={{ backgroundColor: '#f5f5f5' }}>
+        <div>
+            <div style={{ backgroundImage: 'url(/images/login-page.jpg)', backgroundSize: 'cover', backgroundPosition: 'center' }}>
             <Container
                 display="flex"
                 alignItems="center"
@@ -107,6 +108,7 @@ export default function Login() {
                     <Button onClick={handleLogin}>Giriş</Button>
                 </Card>
             </Container>
+            </div>
         </div>
     );
 }

@@ -46,6 +46,7 @@ import { getObjectActions } from '../../apollo/actions/index';
     
     return (
       <div style={{ backgroundColor: '#f5f5f5' }}>
+         <div style={{ backgroundImage: 'url(/images/login-page.jpg)', backgroundSize: 'cover', backgroundPosition: 'center' }}>
         <Container
           display="flex"
           alignItems="center"
@@ -136,6 +137,7 @@ import { getObjectActions } from '../../apollo/actions/index';
             <Button onClick={createUser} >Kayıt Ol</Button>
           </Card>
         </Container>
+        </div>
       </div>
     );
   }
