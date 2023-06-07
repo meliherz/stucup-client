@@ -17,7 +17,7 @@ function ClubList({ clubs }) {
 
     useEffect(() => {
         const getUserById = async () => {
-            const userId = user.id;
+            const userId = user?.id;
             const { data } = await getUser({
                 variables: { userId }
             });
