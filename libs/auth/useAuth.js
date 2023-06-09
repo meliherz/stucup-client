@@ -24,6 +24,7 @@ export default function AuthProvider({ children }) {
       if ((error || data) && router.pathname !== '/login') {
         setState(true); 
         setCurrentPath(router.pathname);
+        setUserRole(data?.isme?.user?.role);
       }
     };
 

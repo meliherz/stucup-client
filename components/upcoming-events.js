@@ -15,7 +15,6 @@ const UpcomingEvents = ({ events }) => {
   const festivalEvents = events?.filter(
     (evt) => evt.category === "sosyal"
   );
-  console.log("fest", festivalEvents)
   const corporateEvents = events?.filter(
     (evt) => evt.category === "teknoloji"
   );

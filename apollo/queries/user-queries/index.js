@@ -62,7 +62,6 @@ mutation Mutation($data: SignInUserInput!) {
   signIn(data: $data) {
     ... on Token {
       userId
-      token
     }
   }
 }`;
@@ -74,6 +73,7 @@ query Isme {
     user {
       id
       username
+      role
     }
   }
 }

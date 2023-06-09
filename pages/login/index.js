@@ -38,7 +38,7 @@ export default function Login() {
                 }
             });
 
-            if (resp?.data?.signIn?.token) {
+            if (resp?.data?.signIn) {
                 router.push(contextState?.currentPath);
             }
 
