@@ -28,13 +28,14 @@ function profile() {
                 <Nav.Item>
                   <Nav.Link eventKey="first">Genel</Nav.Link>
                 </Nav.Item>
-                {(isAdmin) && 
-                   <Nav.Item>
-                   <Nav.Link eventKey="second">Kulübüm</Nav.Link>
-                 </Nav.Item> }
+                {(isAdmin) &&
+                  <Nav.Item>
+                    <Nav.Link eventKey="second">Kulübüm</Nav.Link>
+                  </Nav.Item>}
+                  {(isAdmin) &&  
                 <Nav.Item>
                   <Nav.Link eventKey="fourth">Etkinliklerim</Nav.Link>
-                </Nav.Item>
+                </Nav.Item>}
                 <Nav.Item>
                   <Nav.Link eventKey="third">Güvenlik</Nav.Link>
                 </Nav.Item>
