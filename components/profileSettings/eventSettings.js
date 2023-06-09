@@ -23,9 +23,6 @@ function EventSettings(){
         getClub();
       }, []);
 
-      console.log("adminToEvent",adminToEvent)
-
-
     return(
         
         <>

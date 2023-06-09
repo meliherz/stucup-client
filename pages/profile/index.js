@@ -9,8 +9,14 @@ import Row from 'react-bootstrap/Row';
 import Tab from 'react-bootstrap/Tab';
 import InnerPageLayout from '../../components/inner-page-layout';
 import EventSettings from '../../components/profileSettings/eventSettings'
+import { useUser } from '../../libs/auth/useAuth'
 
 function profile() {
+
+  const { user } = useUser();
+
+  const isAdmin = user && user.role.includes('admin');
+
   return (
     <Layout title={"Profilim"}>
       <InnerPageLayout title={"Profilim"} />
@@ -22,9 +28,10 @@ function profile() {
                 <Nav.Item>
                   <Nav.Link eventKey="first">Genel</Nav.Link>
                 </Nav.Item>
-                <Nav.Item>
-                  <Nav.Link eventKey="second">Kulübüm</Nav.Link>
-                </Nav.Item>
+                {(isAdmin) && 
+                   <Nav.Item>
+                   <Nav.Link eventKey="second">Kulübüm</Nav.Link>
+                 </Nav.Item> }
                 <Nav.Item>
                   <Nav.Link eventKey="fourth">Etkinliklerim</Nav.Link>
                 </Nav.Item>

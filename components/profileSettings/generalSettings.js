@@ -1,6 +1,6 @@
 import { getObjectActions } from '../../apollo/actions/index'
 import { useState } from 'react';
-import { Button, Input, Spacer } from '@nextui-org/react';
+import { Button, Input, Spacer, User } from '@nextui-org/react';
 
 function generalSettings() {
 
@@ -33,8 +33,11 @@ function generalSettings() {
 
 
 return (
-    <div className='d-flex flex-column justify-content-center'>
-        <div className='text-center' style={{ justifyContent: "center", alignSelf: "center",}}>
+    <div className='d-flex flex-row justify-content-center'>
+        <div className='text-left' style={{ justifyContent: "center", alignSelf: "center",}}>
+
+        </div>
+        <div className='text-left' style={{ justifyContent: "center", alignSelf: "center",}}>
             <Input size='lg' labelPlaceholder="Kullanıcı Adınız" name='username' onChange={handleChange} />
             <Spacer y={1.7} />
             <Input size='lg' labelPlaceholder="Adınız" name='firstname' onChange={handleChange}/>
