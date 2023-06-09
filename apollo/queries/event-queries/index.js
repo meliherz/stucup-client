@@ -13,6 +13,7 @@ query Event {
     description
     category
     capacity
+    participants
   }
 }
 `;

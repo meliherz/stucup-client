@@ -3,6 +3,7 @@ import Layout from '../../components/global/layout'
 import ClubSettings from '../../components/profileSettings/clubSettings'
 import UserSettings from '../../components/profileSettings/generalSettings'
 import SecuritySettings from '../../components/profileSettings/securitySettings'
+import MyEventSettings from '../../components/profileSettings/myEventSettings'
 import Col from 'react-bootstrap/Col';
 import Nav from 'react-bootstrap/Nav';
 import Row from 'react-bootstrap/Row';
@@ -37,6 +38,9 @@ function profile() {
                   <Nav.Link eventKey="fourth">Etkinliklerim</Nav.Link>
                 </Nav.Item>}
                 <Nav.Item>
+                  <Nav.Link eventKey="fifth">Katılacağım Etkinlikler</Nav.Link>
+                </Nav.Item>
+                <Nav.Item>
                   <Nav.Link eventKey="third">Güvenlik</Nav.Link>
                 </Nav.Item>
               </Nav>
@@ -61,6 +65,11 @@ function profile() {
                 <Tab.Pane eventKey="fourth">
                   <div>
                     <EventSettings />
+                  </div>
+                </Tab.Pane>
+                <Tab.Pane eventKey="fifth">
+                  <div>
+                    <MyEventSettings />
                   </div>
                 </Tab.Pane>
               </Tab.Content>
