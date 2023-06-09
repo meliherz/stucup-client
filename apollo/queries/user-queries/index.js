@@ -58,10 +58,10 @@ mutation Mutation($input: UpdateUserInput!) {
 `;
 
 export const SIGN_IN_USER = gql`
-mutation Mutation($data: SignInUserInput!) {
+mutation SignInUser($data: SignInUserInput!) {
   signIn(data: $data) {
-    ... on Token {
-      userId
+    ... on User {
+      id
     }
   }
 }`;

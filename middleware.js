@@ -1,21 +1,21 @@
 import { NextResponse } from "next/server";
 
 export function middleware(req) {
-    
-    // const token = req ? req.cookies?.token : null;
+
+    // const user = req ? req.cookies : null;
     // const { pathname } = req.nextUrl;
   
     //   if (pathname.includes('/login') || pathname.includes('/static')) {
     //     return NextResponse.next();
     //   }
       
-    //   if (!token && pathname !== '/login') {
+    //   if (!user && pathname !== '/login') {
     //     const url = req.nextUrl.clone();
     //     url.pathname = '/login';
     //     return NextResponse.redirect(url);
     //   }
 
-    return NextResponse.next()
+    // return NextResponse.next()
 }
 
 // Açıklama!!

@@ -37,9 +37,9 @@ export default function Login() {
                     }
                 }
             });
-
+            console.log(resp?.data);
             if (resp?.data?.signIn) {
-                router.push(contextState?.currentPath);
+                router.push("/");
             }
 
         } catch (err) {
