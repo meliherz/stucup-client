@@ -48,66 +48,87 @@ export default function Login() {
     };
 
     return (
-        <div>
-            <div style={{ backgroundImage: 'url(/images/login-page.jpg)', backgroundSize: 'cover', backgroundPosition: 'center' }}>
-            <Container
-                display="flex"
-                alignItems="center"
-                justify="center"
-                css={{ minHeight: '100vh' }}
-            >
-                <Card css={{ mw: '420px', p: '20px' }}>
-                    <Text
-                        size={24}
-                        weight="bold"
-                        css={{
-                            as: 'center',
-                            mb: '20px',
-                        }}
-                    >
-                        STUCUP Login
-                    </Text>
-                    <Input
-                        id='username'
-                        clearable
-                        bordered
-                        fullWidth
-                        color="primary"
-                        size="lg"
-                        placeholder="Username"
-                        aria-label="Username"
-                        contentLeft={<Mail fill="currentColor" />}
-                        onChange={handleOnChangeMail}
-                    />
-                    <Spacer y={1} />
-                    <Input
-                        id='password'
-                        type='password'
-                        clearable
-                        bordered
-                        fullWidth
-                        color="primary"
-                        size="lg"
-                        placeholder="Password"
-                        aria-label="Password"
-                        contentLeft={<Password fill="currentColor" />}
-                        onChange={handleOnChangePassword}
-                        css={{ mb: '6px' }}
-                    />
-                    <Row justify="space-between">
-                        <Checkbox>
-                            <Text htmlFor='remember-checkbox' style={{ fontSize: '14px' }}>
-                                Beni Hatırla
-                            </Text>
-                        </Checkbox>
-                        <Link href="/login/register">
-                            <Text size={14}>Kayıt Ol</Text>
-                        </Link>
-                    </Row>
-                    <Spacer y={1} />
-                    <Button onClick={handleLogin}>Giriş</Button>
-                </Card>
-            </Container>
+        <div style={{ backgroundImage: 'url(/images/login-page.jpg)', backgroundSize: 'cover', backgroundPosition: 'center', display: "flex" }}>
+            <div style={{ width: "50%" }}>
+                <Container
+                    display="flex"
+                    alignItems="center"
+                    justify="center"
+                    css={{ minHeight: '100vh' }}
+                >
+                    <Text 
+                        size={20}
+                            weight="italic"
+                            css={{
+                                padding:'$12',
+                                backgroundColor: '#ffffaa',
+                                borderRadius:'$2xl',
+                                as: 'center',
+                                mb: '10px',
+                            }}
+                    ><b>STUCUP</b> <br/> Üniversite kulüplerini ve düzenledikleri etkinlikleri bir araya getiren bir platformdur. <br/> Aramızda seni de görmeyi çok isteriz! </Text>
+                </Container>
+
+            </div>
+            <div style={{ width: "50%" }}>
+                <Container
+                    display="flex"
+                    alignItems="center"
+                    justify="center"
+                    css={{ minHeight: '100vh' }}
+                >
+                    <Card css={{ mw: '420px', p: '20px' }}>
+                        <Text
+                            size={24}
+                            weight="bold"
+                            css={{
+                                as: 'center',
+                                mb: '20px',
+                            }}
+                        >
+                            STUCUP Login
+                        </Text>
+                        <Input
+                            id='username'
+                            clearable
+                            bordered
+                            fullWidth
+                            color="primary"
+                            size="lg"
+                            placeholder="Username"
+                            aria-label="Username"
+                            contentLeft={<Mail fill="currentColor" />}
+                            onChange={handleOnChangeMail}
+                        />
+                        <Spacer y={1} />
+                        <Input
+                            id='password'
+                            type='password'
+                            clearable
+                            bordered
+                            fullWidth
+                            color="primary"
+                            size="lg"
+                            placeholder="Password"
+                            aria-label="Password"
+                            contentLeft={<Password fill="currentColor" />}
+                            onChange={handleOnChangePassword}
+                            css={{ mb: '6px' }}
+                        />
+                        <Row justify="space-between">
+                            <Checkbox>
+                                <Text htmlFor='remember-checkbox' style={{ fontSize: '14px' }}>
+                                    Beni Hatırla
+                                </Text>
+                            </Checkbox>
+                            <Link href="/login/register">
+                                <Text size={14}>Kayıt Ol</Text>
+                            </Link>
+                        </Row>
+                        <Spacer y={1} />
+                        <Button onClick={handleLogin}>Giriş</Button>
+                    </Card>
+                </Container>
             </div>
         </div>
     );
