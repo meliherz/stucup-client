@@ -28,6 +28,7 @@ const EventSinglePage = ({ }) => {
   const [checkQr, setCheckQr] = useState(true)
 
   const updateEventToParticipants = async (userId) => {
+
     const { data } = await updateEvent({
       variables: {
         input: {

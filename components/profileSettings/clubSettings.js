@@ -14,6 +14,8 @@ function clubSettings() {
     const [updateClub] = getObjectActions["useUpdateClub"]();
     const[getClubs] = getObjectActions["useGetClubs"]();
     const [adminToEvent, setAdminToEvent] = useState();
+    const [newEventId, setNewEventId] = useState([]);
+
 
     const [registerEvent, setRegisterEvent] = useState({
         eventname: '',
@@ -44,6 +46,7 @@ function clubSettings() {
           [name]: value
         }));
       };
+
     const createEvent = async () => {
         try {
             const resp = await getObjects({
@@ -51,15 +54,7 @@ function clubSettings() {
             });
             if(resp?.data?.eventCreate) {
                 const eventId = resp.data.eventCreate.id
-                console.log("adminToEvent",adminToEvent)
-                console.log("eventId",eventId)
-                const update = await updateClub({
-                    variables: { 
-                        input: {
-                        id: adminToEvent,
-                        events: eventId,
-                    } }
-                })
+                await handleChangeToEvent(eventId);
                 router.push(`/events/${eventId}`);
             }
 
@@ -67,6 +62,27 @@ function clubSettings() {
             console.error('Kayıt hatası:', error);
         }
     };
+
+
+    const updateEventToAdd = async (a) => {
+        const { data } = await updateClub({
+            variables: { 
+                input: {
+                id: adminToEvent,
+                events: a,
+            }
+          }
+        })
+      };
+
+
+    const handleChangeToEvent = (eventId) => {
+        setNewEventId((prevClubs) => {
+          const newFollowedClubs = [...prevClubs, eventId];
+          updateEventToAdd(newFollowedClubs);
+          return newFollowedClubs;
+        });
+      }
 
 
 return (
