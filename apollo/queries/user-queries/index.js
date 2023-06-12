@@ -30,7 +30,7 @@ query Query($userId: ID!) {
 
 //Düzenle
 export const CREATE_USER = gql`
-mutation Mutation($input: CreateUserInput!) {
+mutation Register($input: CreateUserInput!) {
   userCreate(input: $input) {
     id
     username

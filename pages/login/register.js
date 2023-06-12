@@ -22,9 +22,7 @@ import { getObjectActions } from '../../apollo/actions/index';
       const resp = await getObjects({
         variables: { input: registerData },
       });
-      
       if (resp?.data?.userCreate) {
-        // Kayıt işlemi başarılı
         console.log('Kayıt işlemi başarılı!');
         router.push('/login');
       } else {
