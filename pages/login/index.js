@@ -60,7 +60,7 @@ export default function Login() {
                         size={20}
                             weight="italic"
                             css={{
-                                padding:'$12',
+                                padding:'$6',
                                 backgroundColor: '#ffffaa',
                                 borderRadius:'$2xl',
                                 as: 'center',
