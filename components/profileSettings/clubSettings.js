@@ -6,6 +6,8 @@ import { Button, Input, Spacer, Textarea } from '@nextui-org/react';
 /// Admin olan kişinin id'sini useUser kullanarak al. userın yönetici olduğu clubun idsini al. o id ile clube update et eventi
 function clubSettings() {
 
+    const router = useRouter();
+
     const [getObjects] = getObjectActions["useCreateEvent"]();
 
     const [registerEvent, setRegisterEvent] = useState({
@@ -32,6 +34,10 @@ function clubSettings() {
             const resp = await getObjects({
                 variables: { input: registerEvent },
             });
+            if(resp?.data?.eventCreate) {
+                const eventId = resp.data.eventCreate.id
+                router.push(`/events/${eventId}`);
+            }
 
         } catch (error) {
             console.error('Kayıt hatası:', error);

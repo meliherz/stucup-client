@@ -21,7 +21,7 @@ function ClubList({ clubs }) {
             const { data } = await getUser({
                 variables: { userId }
             });
-            setOldFollowed(data.user.followsclub.map((item) => item))
+            setOldFollowed(data?.user?.followsclub?.map((item) => item))
         };
         getUserById();
     }, [oldFollowed]);
