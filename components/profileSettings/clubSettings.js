@@ -1,14 +1,19 @@
 import { getObjectActions } from '../../apollo/actions/index'
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
 import { Button, Input, Spacer, Textarea } from '@nextui-org/react';
+import { useUser } from '../../libs/auth/useAuth';
 
 /// Admin olan kişinin id'sini useUser kullanarak al. userın yönetici olduğu clubun idsini al. o id ile clube update et eventi
 function clubSettings() {
 
     const router = useRouter();
+    const {user} = useUser();
 
     const [getObjects] = getObjectActions["useCreateEvent"]();
+    const [updateClub] = getObjectActions["useUpdateClub"]();
+    const[getClubs] = getObjectActions["useGetClubs"]();
+    const [adminToEvent, setAdminToEvent] = useState();
 
     const [registerEvent, setRegisterEvent] = useState({
         eventname: '',
@@ -21,6 +26,16 @@ function clubSettings() {
         capacity: '',
         eventImage: ''
     });
+
+
+    useEffect(() => {
+        const getClub = async () => {
+          const { data } = await getClubs();
+          const adminClub=  data?.clubs?.filter((item) => item?.admin?.id == user.id)
+          setAdminToEvent(adminClub[0].id)  
+        };
+        getClub();
+      }, []);
 
     const handleChange = (e) => {
         const { name, value } = e.target;
@@ -36,6 +51,15 @@ function clubSettings() {
             });
             if(resp?.data?.eventCreate) {
                 const eventId = resp.data.eventCreate.id
+                console.log("adminToEvent",adminToEvent)
+                console.log("eventId",eventId)
+                const update = await updateClub({
+                    variables: { 
+                        input: {
+                        id: adminToEvent,
+                        events: eventId,
+                    } }
+                })
                 router.push(`/events/${eventId}`);
             }
 
