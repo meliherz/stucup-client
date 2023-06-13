@@ -2,17 +2,41 @@ import React, { useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import Modal from 'react-bootstrap/Modal';
+import { getObjectActions } from '../apollo/actions';
 
-function RegisterforEvent() {
+function RegisterforEvent({eventId}) {
     const [show, setShow] = useState(false);
-    const [valueInput, setValueInput] = useState([]);
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
+    // const[updateEvent] = getObjectActions["useUpdateEvent"]();
 
-    const handleOnChange = (value,key) => {
-        setValueInput((prevValue) => ({ ...prevValue, [key]: value }));
-        console.log(valueInput);
-    }
+    // const [valueInput, setValueInput] = useState({
+    //     name: '',
+    //     phone: '',
+    //     email: '',
+    //   });
+
+    // const handleInputChange = (e,name) => {
+    //     const a= name;
+    //     const value = e;
+    //     console.log("name",a);
+    //     setValueInput((prevData) => ({
+    //       ...prevData,
+    //       [a]: value
+    //     }));
+    //     console.log(valueInput);
+    //   };
+
+    // const updateParticipants = async () => {
+    //     try {
+    //         const resp = await updateEvent({
+    //           variables: { input: valueInput },
+    //         });
+
+    //       } catch (error) {
+    //         console.error('Kayıt hatası:', error);
+    //       }
+    // };
 
     return (
         <>
@@ -22,42 +46,16 @@ function RegisterforEvent() {
 
             <Modal show={show} onHide={handleClose}>
                 <Modal.Header closeButton>
-                    <Modal.Title>Unutma! Etkinlike Sen Yoksan Eksiğiz.</Modal.Title>
+                    <Modal.Title>QR</Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
-                    <Form>
-                        <Form.Group onChange={(e) => handleOnChange(e.target.value, "name")}
-                            className="mb-3"
-                            controlId="name"
-                        >
-                            <Form.Label>İsim / Soyisim</Form.Label>
-                            <Form.Control type='text' rows={3} />
-                        </Form.Group>
-
-                        <Form.Group onChange={(e) => handleOnChange(e.target.value, "phone")}
-                            className="mb-3"
-                            controlId="phoneNumber"
-                        >
-                            <Form.Label>Telefon Numarası</Form.Label>
-                            <Form.Control type="phone" rows={3} />
-                        </Form.Group>
-                        
-
-                        <Form.Group onChange={(e) => handleOnChange(e.target.value, "email")}
-                        className="mb-3" controlId="exampleForm.ControlInput1">
-                            <Form.Label>E-mail</Form.Label>
-                            <Form.Control
-                                type="email"
-                                autoFocus
-                            />
-                        </Form.Group>
-                    </Form>
+                    aaaaaa
                 </Modal.Body>
                 <Modal.Footer>
                     <Button variant="secondary" onClick={handleClose}>
                         Kapat
                     </Button>
-                    <Button variant="primary" onClick={handleClose}>
+                    <Button variant="primary">
                         Kayıt Ol
                     </Button>
                 </Modal.Footer>

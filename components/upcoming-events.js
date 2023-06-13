@@ -12,27 +12,13 @@ import {
 import { API_URL } from "../config";
 
 const UpcomingEvents = ({ events }) => {
-  const sportsEvents = events?.filter(
-    (evt) => evt.attributes.category === "sports"
+  const festivalEvents = events?.filter(
+    (evt) => evt.category === "sosyal"
   );
   const corporateEvents = events?.filter(
-    (evt) => evt.attributes.category === "corporate"
+    (evt) => evt.category === "teknoloji"
   );
-  const privateEvents = events?.filter(
-    (evt) => evt.attributes.category === "private"
-  );
-  const charityEvents = events?.filter(
-    (evt) => evt.attributes.category === "charity"
-  );
-  const festivalEvents = events?.filter(
-    (evt) => evt.attributes.category === "festival"
-  );
-  const concertEvents = events?.filter(
-    (evt) => evt.attributes.category === "concert"
-  );
-  const partyEvents = events?.filter(
-    (evt) => evt.attributes.category === "party"
-  );
+
   const [key, setKey] = useState("AllEvents");
   return (
     <div id="upcoming-events" className="upcoming-events section-padding">
@@ -51,12 +37,12 @@ const UpcomingEvents = ({ events }) => {
                     <div className="image">
                       <img
                         className="img-fluid"
-                        src={`${API_URL}${evt.attributes?.image?.data?.attributes.url}`}
-                        alt={evt.attributes.image.data.attributes.name}
+                        src={`${evt?.eventImage}`}
+                        alt={evt.eventname}
                       />
                       {evt?.attributes?.eventType !== "none" ? (
                         <div className="popular">
-                          {evt?.attributes?.eventType}
+                          {evt?.category}
                         </div>
                       ) : (
                         ""
@@ -65,32 +51,10 @@ const UpcomingEvents = ({ events }) => {
                     <div className="upcoming-events__item__info">
                       <div className="title">
                         <h3>
-                          <Link href={`/events/${evt?.attributes?.slug}`}>
-                            {evt?.attributes?.name}
+                          <Link href={`/events/${evt?.id}`}>
+                            {evt?.eventname}
                           </Link>
                         </h3>
-                      </div>
-                      <div className="d-flex align-items-center justify-content-between mb-2">
-                        <div className="price d-flex align-items-center gap-2">
-                          <ImPriceTags /> <span>${evt.attributes.price}</span>
-                        </div>
-                        <div className="d-flex align-items-center gap-2">
-                          <ImTicket />{" "}
-                          <span>{evt.attributes.tickets} remaining</span>
-                        </div>
-                      </div>
-                      <div className="d-flex align-items-center gap-2 mb-2">
-                        <ImLocation2 /> <span>{evt.attributes.location}</span>
-                      </div>
-                      <div className="timing">
-                        <div className="d-flex align-items-center gap-2">
-                          <ImCalendar />
-                          <span>{evt.attributes.date}</span>
-                        </div>
-                        <div className="d-flex align-items-center gap-2">
-                          <ImClock />
-                          <span>{evt.attributes.time.slice(0, 5)}</span>
-                        </div>
                       </div>
                     </div>
                   </div>
@@ -98,333 +62,69 @@ const UpcomingEvents = ({ events }) => {
               ))}
             </div>
           </Tab>
-          <Tab eventKey="corporate" title="Kurumsal Etkinlikler">
+           <Tab eventKey="teknoloji" title="Teknoloji">
             <div className="row">
               {corporateEvents?.slice(0, 6).map((evt) => (
                 <div key={evt.id} className="col-md-6 col-lg-4 mb-4">
-                  <div className="upcoming-events__item">
-                    <div className="image">
-                      <img
-                        className="img-fluid"
-                        src={`${API_URL}${evt.attributes?.image?.data?.attributes.url}`}
-                        alt={evt.attributes.image.data.attributes.name}
-                      />
-                      {evt?.attributes?.eventType !== "none" ? (
-                        <div className="popular">
-                          {evt?.attributes?.eventType}
-                        </div>
-                      ) : (
-                        ""
-                      )}
-                    </div>
-                    <div className="upcoming-events__item__info">
-                      <div className="title">
-                        <h3>
-                          <Link href={`/events/${evt?.attributes?.slug}`}>
-                            {evt?.attributes?.name}
-                          </Link>
-                        </h3>
+                <div className="upcoming-events__item">
+                  <div className="image">
+                    <img
+                      className="img-fluid"
+                      src={`${evt?.eventImage}`}
+                      alt={evt?.eventname}
+                    />
+                    {evt?.attributes?.eventType !== "none" ? (
+                      <div className="popular">
+                        {evt?.category}
                       </div>
-                      <div className="d-flex align-items-center justify-content-between mb-2">
-                        <div className="price d-flex align-items-center gap-2">
-                          <ImPriceTags /> <span>${evt.attributes.price}</span>
-                        </div>
-                        <div className="d-flex align-items-center gap-2">
-                          <ImTicket />{" "}
-                          <span>{evt.attributes.tickets} remaining</span>
-                        </div>
-                      </div>
-                      <div className="d-flex align-items-center gap-2 mb-2">
-                        <ImLocation2 /> <span>{evt.attributes.location}</span>
-                      </div>
-                      <div className="timing">
-                        <div className="d-flex align-items-center gap-2">
-                          <ImCalendar />
-                          <span>{evt.attributes.date}</span>
-                        </div>
-                        <div className="d-flex align-items-center gap-2">
-                          <ImClock />
-                          <span>{evt.attributes.time.slice(0, 5)}</span>
-                        </div>
-                      </div>
+                    ) : (
+                      ""
+                    )}
+                  </div>
+                  <div className="upcoming-events__item__info">
+                    <div className="title">
+                      <h3>
+                        <Link href={`/events/${evt?.attributes?.slug}`}>
+                          {evt?.eventname}
+                        </Link>
+                      </h3>
                     </div>
                   </div>
                 </div>
+              </div>
               ))}
             </div>
           </Tab>
-          <Tab eventKey="private" title="Özel Etkinlikler">
-            <div className="row">
-              {privateEvents?.slice(0, 6).map((evt) => (
-                <div key={evt.id} className="col-md-6 col-lg-4 mb-4">
-                  <div className="upcoming-events__item">
-                    <div className="image">
-                      <img
-                        className="img-fluid"
-                        src={`${API_URL}${evt.attributes?.image?.data?.attributes.url}`}
-                        alt={evt.attributes.image.data.attributes.name}
-                      />
-                      {evt?.attributes?.eventType !== "none" ? (
-                        <div className="popular">
-                          {evt?.attributes?.eventType}
-                        </div>
-                      ) : (
-                        ""
-                      )}
-                    </div>
-                    <div className="upcoming-events__item__info">
-                      <div className="title">
-                        <h3>
-                          <Link href={`/events/${evt?.attributes?.slug}`}>
-                            {evt?.attributes?.name}
-                          </Link>
-                        </h3>
-                      </div>
-                      <div className="d-flex align-items-center justify-content-between mb-2">
-                        <div className="price d-flex align-items-center gap-2">
-                          <ImPriceTags /> <span>${evt.attributes.price}</span>
-                        </div>
-                        <div className="d-flex align-items-center gap-2">
-                          <ImTicket />{" "}
-                          <span>{evt.attributes.tickets} remaining</span>
-                        </div>
-                      </div>
-                      <div className="d-flex align-items-center gap-2 mb-2">
-                        <ImLocation2 /> <span>{evt.attributes.location}</span>
-                      </div>
-                      <div className="timing">
-                        <div className="d-flex align-items-center gap-2">
-                          <ImCalendar />
-                          <span>{evt.attributes.date}</span>
-                        </div>
-                        <div className="d-flex align-items-center gap-2">
-                          <ImClock />
-                          <span>{evt.attributes.time.slice(0, 5)}</span>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </Tab>
-          <Tab eventKey="charity" title="Hayırseverlik Etkinlikleri">
-            <div className="row">
-              {charityEvents?.slice(0, 6).map((evt) => (
-                <div key={evt.id} className="col-md-6 col-lg-4 mb-4">
-                  <div className="upcoming-events__item">
-                    <div className="image">
-                      <img
-                        className="img-fluid"
-                        src={`${API_URL}${evt.attributes?.image?.data?.attributes.url}`}
-                        alt={evt.attributes.image.data.attributes.name}
-                      />
-                      {evt?.attributes?.eventType !== "none" ? (
-                        <div className="popular">
-                          {evt?.attributes?.eventType}
-                        </div>
-                      ) : (
-                        ""
-                      )}
-                    </div>
-                    <div className="upcoming-events__item__info">
-                      <div className="title">
-                        <h3>
-                          <Link href={`/events/${evt?.attributes?.slug}`}>
-                            {evt?.attributes?.name}
-                          </Link>
-                        </h3>
-                      </div>
-                      <div className="d-flex align-items-center justify-content-between mb-2">
-                        <div className="price d-flex align-items-center gap-2">
-                          <ImPriceTags /> <span>${evt.attributes.price}</span>
-                        </div>
-                        <div className="d-flex align-items-center gap-2">
-                          <ImTicket />{" "}
-                          <span>{evt.attributes.tickets} remaining</span>
-                        </div>
-                      </div>
-                      <div className="d-flex align-items-center gap-2 mb-2">
-                        <ImLocation2 /> <span>{evt.attributes.location}</span>
-                      </div>
-                      <div className="timing">
-                        <div className="d-flex align-items-center gap-2">
-                          <ImCalendar />
-                          <span>{evt.attributes.date}</span>
-                        </div>
-                        <div className="d-flex align-items-center gap-2">
-                          <ImClock />
-                          <span>{evt.attributes.time.slice(0, 5)}</span>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </Tab>
-          <Tab eventKey="festival" title="Festival Etkinlikleri">
+          <Tab eventKey="sosyal" title="Sosyal">
             <div className="row">
               {festivalEvents?.slice(0, 6).map((evt) => (
                 <div key={evt.id} className="col-md-6 col-lg-4 mb-4">
-                  <div className="upcoming-events__item">
-                    <div className="image">
-                      <img
-                        className="img-fluid"
-                        src={`${API_URL}${evt.attributes?.image?.data?.attributes.url}`}
-                        alt={evt.attributes.image.data.attributes.name}
-                      />
-                      {evt?.attributes?.eventType !== "none" ? (
-                        <div className="popular">
-                          {evt?.attributes?.eventType}
-                        </div>
-                      ) : (
-                        ""
-                      )}
-                    </div>
-                    <div className="upcoming-events__item__info">
-                      <div className="title">
-                        <h3>
-                          <Link href={`/events/${evt?.attributes?.slug}`}>
-                            {evt?.attributes?.name}
-                          </Link>
-                        </h3>
+                <div className="upcoming-events__item">
+                  <div className="image">
+                    <img
+                      className="img-fluid"
+                      src={`${evt?.eventImage}`}
+                      alt={evt.eventname}
+                    />
+                    {evt?.attributes?.eventType !== "none" ? (
+                      <div className="popular">
+                        {evt?.category}
                       </div>
-                      <div className="d-flex align-items-center justify-content-between mb-2">
-                        <div className="price d-flex align-items-center gap-2">
-                          <ImPriceTags /> <span>${evt.attributes.price}</span>
-                        </div>
-                        <div className="d-flex align-items-center gap-2">
-                          <ImTicket />{" "}
-                          <span>{evt.attributes.tickets} remaining</span>
-                        </div>
-                      </div>
-                      <div className="d-flex align-items-center gap-2 mb-2">
-                        <ImLocation2 /> <span>{evt.attributes.location}</span>
-                      </div>
-                      <div className="timing">
-                        <div className="d-flex align-items-center gap-2">
-                          <ImCalendar />
-                          <span>{evt.attributes.date}</span>
-                        </div>
-                        <div className="d-flex align-items-center gap-2">
-                          <ImClock />
-                          <span>{evt.attributes.time.slice(0, 5)}</span>
-                        </div>
-                      </div>
+                    ) : (
+                      ""
+                    )}
+                  </div>
+                  <div className="upcoming-events__item__info">
+                    <div className="title">
+                      <h3>
+                        <Link href={`/events/${evt?.attributes?.slug}`}>
+                          {evt?.eventname}
+                        </Link>
+                      </h3>
                     </div>
                   </div>
                 </div>
-              ))}
-            </div>
-          </Tab>
-          <Tab eventKey="sports" title="Spor Etkinlikleri">
-            <div className="row">
-              {sportsEvents?.slice(0, 6).map((evt) => (
-                <div key={evt.id} className="col-md-6 col-lg-4 mb-4">
-                  <div className="upcoming-events__item">
-                    <div className="image">
-                      <img
-                        className="img-fluid"
-                        src={`${API_URL}${evt.attributes?.image?.data?.attributes.url}`}
-                        alt={evt.attributes.image.data.attributes.name}
-                      />
-                      {evt?.attributes?.eventType !== "none" ? (
-                        <div className="popular">
-                          {evt?.attributes?.eventType}
-                        </div>
-                      ) : (
-                        ""
-                      )}
-                    </div>
-                    <div className="upcoming-events__item__info">
-                      <div className="title">
-                        <h3>
-                          <Link href={`/events/${evt?.attributes?.slug}`}>
-                            {evt?.attributes?.name}
-                          </Link>
-                        </h3>
-                      </div>
-                      <div className="d-flex align-items-center justify-content-between mb-2">
-                        <div className="price d-flex align-items-center gap-2">
-                          <ImPriceTags /> <span>${evt.attributes.price}</span>
-                        </div>
-                        <div className="d-flex align-items-center gap-2">
-                          <ImTicket />{" "}
-                          <span>{evt.attributes.tickets} remaining</span>
-                        </div>
-                      </div>
-                      <div className="d-flex align-items-center gap-2 mb-2">
-                        <ImLocation2 /> <span>{evt.attributes.location}</span>
-                      </div>
-                      <div className="timing">
-                        <div className="d-flex align-items-center gap-2">
-                          <ImCalendar />
-                          <span>{evt.attributes.date}</span>
-                        </div>
-                        <div className="d-flex align-items-center gap-2">
-                          <ImClock />
-                          <span>{evt.attributes.time.slice(0, 5)}</span>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </Tab>
-          <Tab eventKey="concert" title="Konser Etkinlikleri">
-            <div className="row">
-              {concertEvents?.slice(0, 6).map((evt) => (
-                <div key={evt.id} className="col-md-6 col-lg-4 mb-4">
-                  <div className="upcoming-events__item">
-                    <div className="image">
-                      <img
-                        className="img-fluid"
-                        src={`${API_URL}${evt.attributes?.image?.data?.attributes.url}`}
-                        alt={evt.attributes.image.data.attributes.name}
-                      />
-                      {evt?.attributes?.eventType !== "none" ? (
-                        <div className="popular">
-                          {evt?.attributes?.eventType}
-                        </div>
-                      ) : (
-                        ""
-                      )}
-                    </div>
-                    <div className="upcoming-events__item__info">
-                      <div className="title">
-                        <h3>
-                          <Link href={`/events/${evt?.attributes?.slug}`}>
-                            {evt?.attributes?.name}
-                          </Link>
-                        </h3>
-                      </div>
-                      <div className="d-flex align-items-center justify-content-between mb-2">
-                        <div className="price d-flex align-items-center gap-2">
-                          <ImPriceTags /> <span>${evt.attributes.price}</span>
-                        </div>
-                        <div className="d-flex align-items-center gap-2">
-                          <ImTicket />{" "}
-                          <span>{evt.attributes.tickets} remaining</span>
-                        </div>
-                      </div>
-                      <div className="d-flex align-items-center gap-2 mb-2">
-                        <ImLocation2 /> <span>{evt.attributes.location}</span>
-                      </div>
-                      <div className="timing">
-                        <div className="d-flex align-items-center gap-2">
-                          <ImCalendar />
-                          <span>{evt.attributes.date}</span>
-                        </div>
-                        <div className="d-flex align-items-center gap-2">
-                          <ImClock />
-                          <span>{evt.attributes.time.slice(0, 5)}</span>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
+              </div>
               ))}
             </div>
           </Tab>

@@ -12,7 +12,9 @@ const InnerPageLayout = ({ title }) => {
               <Link href="/">Ana Sayfa</Link>
               <FaAngleRight />
             </li>
-            <li>{title}</li>
+            <li>
+              {title}
+            </li>
           </ul>
         </div>
       </div>

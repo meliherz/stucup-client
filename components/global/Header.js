@@ -1,8 +1,11 @@
 import Link from "next/link";
 import { Navbar } from "react-bootstrap";
-import { MdOutlineEmail} from "react-icons/md";
-
+import { FiLogOut } from 'react-icons/fi';
+import { User } from "@nextui-org/react";
+import { useUser } from "../../libs/auth/useAuth";
 const Header = () => {
+
+  const { user } = useUser();
   return (
     <div className="header">
       <div className="container">
@@ -62,7 +65,12 @@ const Header = () => {
           <ul className="navbar-nav navbar__right d-none d-lg-flex align-items-center gap-2">
             <li className="nav-item">
               <Link className="nav-link" href="/profile">
-                Profilim
+                {user?.username}
+              </Link>
+            </li>
+            <li className="nav-item">
+              <Link className="nav-link" href="/signout">
+                <FiLogOut size={25} />
               </Link>
             </li>
           </ul>

@@ -5,18 +5,48 @@ import Layout from "../../components/global/layout";
 import { FaUserCircle } from "react-icons/fa";
 import { ImLocation2, ImTicket, ImCalendar, ImPriceTags, ImClock } from "react-icons/im";
 import InnerPageLayout from "../../components/inner-page-layout";
-import Link from "next/link";
+import { useUser } from "../../libs/auth/useAuth";
+import { Button } from "react-bootstrap";
 import RegisterforEvent from "../../components/RegisterforEvent";
-import SectionTitle from "../../components/global/section-title";
-import md from 'markdown-it';
+import Modal from 'react-bootstrap/Modal';
+import QrCode from "../../components/QrCode";
 
 const EventSinglePage = ({ }) => {
 
   const router = useRouter();
+  const { user } = useUser();
 
   const { slug } = router.query;
 
   const [getObjects] = getObjectActions["useGetEventById"]();
+  const [updateEvent] = getObjectActions["useUpdateEvent"]();
+  const [checkRegister, setCheckRegister] = useState(true)
+  const [show, setShow] = useState(false);
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
+  const [participants, setParticipants] = useState([]);
+  const [checkQr, setCheckQr] = useState(true)
+
+  const updateEventToParticipants = async (userId) => {
+
+    const { data } = await updateEvent({
+      variables: {
+        input: {
+          participants: userId,
+          id: slug,
+        }
+      }
+    })
+  };
+
+  const handleChange = () => {
+    setParticipants((prevClubs) => {
+      const newFollowedClubs = [...prevClubs, user.id];
+      updateEventToParticipants(newFollowedClubs);
+      return newFollowedClubs;
+    });
+  }
+
   const [eventData, setEventData] = useState([]);
 
   useEffect(() => {
@@ -89,7 +119,24 @@ const EventSinglePage = ({ }) => {
                         </div>
                       </div>
                       <div className="d-flex align-items-center gap-4 mb-1 mb-lg-2">
-                        <RegisterforEvent />
+                        <Button onClick={() => { handleChange(), handleShow() }}>Kayıt ol</Button>
+                        {
+                          (checkQr) ?
+                            <Modal show={show} onHide={handleClose}>
+                              <Modal.Header closeButton>
+                                <Modal.Title>Etkinliğe Giriş İçin QR Kodu Kaydediniz.</Modal.Title>
+                              </Modal.Header>
+                              <Modal.Body className="text-center">
+                                <QrCode></QrCode>
+                              </Modal.Body>
+                              <Modal.Footer>
+                                <Button variant="secondary" onClick={handleClose}>
+                                  Kapat
+                                </Button>
+                              </Modal.Footer>
+                            </Modal> :
+                            setCheckQr(false)
+                        }
                       </div>
                     </div>
                   </div>

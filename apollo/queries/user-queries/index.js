@@ -19,10 +19,9 @@ query Query($userId: ID!) {
     ... on User {
       id
       followsclub
-      lastname
-      role
       username
       firstname
+      lastname
       email
     }
   }
@@ -31,14 +30,12 @@ query Query($userId: ID!) {
 
 //Düzenle
 export const CREATE_USER = gql`
-mutation Mutation($input: CreateUserInput!) {
+mutation Register($input: CreateUserInput!) {
   userCreate(input: $input) {
     id
     username
     lastname
     password
-    role
-    followsclub
     firstname
     email
   }
@@ -58,4 +55,32 @@ mutation Mutation($input: UpdateUserInput!) {
     email
   }
 }
+`;
+
+export const SIGN_IN_USER = gql`
+mutation SignInUser($data: SignInUserInput!) {
+  signIn(data: $data) {
+    ... on User {
+      id
+    }
+  }
+}`;
+
+export const IS_ME = gql`
+query Isme {
+  isme {
+    isMe
+    user {
+      id
+      username
+      role
+    }
+  }
+}
+`;
+
+export const SIGN_OUT = gql`
+    mutation SignOutUser{
+      signOutUser
+    }   
 `;

@@ -4,14 +4,32 @@ export const GET_CLUBS = gql`
 query Clubs {
   clubs {
     id
+    clubname
+    clubImage
+    admin {
+      id
+      username
+    }
+    description
+    email
+    events {
+      id
+      eventname
+      eventTime
+      eventImage
+      eventDate
+      description
+      category
+      capacity
+      location
+      organizer
+      participants
+    }
+    rate
     university {
       id
       universityName
     }
-    description
-    clubname
-    clubImage
-    rate
   }
 }
 `;
@@ -78,21 +96,9 @@ export const UPDATE_CLUB = gql`
 mutation Mutation($input: UpdateClubInput!) {
   clubUpdate(input: $input) {
     id
-    email
     events {
       id
-      eventname
     }
-    members
-    rate
-    university {
-      id
-      universityName
-    }
-    description
-    clubname
-    clubImage
-    admin
   }
 }
 `;

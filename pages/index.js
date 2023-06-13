@@ -11,11 +11,21 @@ const inter = Inter({ subsets: ["latin"] });
 
 export default function Home() {
 
+  const [getObjects] = getObjectActions["useGetEvents"]();
+  const [eventData, setEventData] = useState([]);
+
+  useEffect(() => {
+    const getEvents = async () => {
+      const { data } = await getObjects();
+      return setEventData(data)
+    };
+    getEvents();
+  }, [getObjects]);
 
   return (
     <Layout title="Stucup">
       <Hero />
-      <UpcomingEvents />
+      <UpcomingEvents events={eventData?.events}/>
       <BestClubs />
       <HowItWorks />
     </Layout>

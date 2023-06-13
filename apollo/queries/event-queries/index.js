@@ -13,6 +13,7 @@ query Event {
     description
     category
     capacity
+    participants
   }
 }
 `;
@@ -37,16 +38,30 @@ query Event($eventId: ID!) {
 `;
 
 export const CREATE_EVENT = gql`
-mutation EventCreate($input: CreateEventInput!) {
+mutation Mutation($input: CreateEventInput!) {
   eventCreate(input: $input) {
     id
     eventname
-    clubId
     description
-    organizer
     eventDate
+    eventTime
     location
+    organizer
+    category
+    capacity
     eventImage
   }
+}
+`;
+
+
+export const UPDATE_EVENT = gql`
+mutation Mutation($input: UpdateEventInput!) {
+    eventUpdate(input: $input) {
+      ... on Event {
+        id
+        participants
+        }
+}
 }
 `;
