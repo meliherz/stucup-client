@@ -34,7 +34,7 @@ function clubSettings() {
         const getClub = async () => {
           const { data } = await getClubs();
           const adminClub=  data?.clubs?.filter((item) => item?.admin?.id == user.id)
-          setAdminToEvent(adminClub[0].id)  
+          setAdminToEvent(adminClub[0]?.id)
         };
         getClub();
       }, []);

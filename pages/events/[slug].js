@@ -124,7 +124,7 @@ const EventSinglePage = ({ }) => {
                           (checkQr) ?
                             <Modal show={show} onHide={handleClose}>
                               <Modal.Header closeButton>
-                                <Modal.Title>Etkinliğe Giriş İçin QRCode.</Modal.Title>
+                                <Modal.Title>Etkinliğe Giriş İçin QR Kodu Kaydediniz.</Modal.Title>
                               </Modal.Header>
                               <Modal.Body className="text-center">
                                 <QrCode></QrCode>
